@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // for the date format
 import 'colors.dart' as colors;
+import 'fooddonation.dart';
 
 class FoodDonationForm extends StatefulWidget {
   const FoodDonationForm({Key? key}) : super(key: key);
@@ -130,11 +131,20 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                 children: [
                   Row(
                     children: [
-                      const Icon(
-                        Icons.arrow_back_ios,
-                        size: 20,
-                        color: colors.ColorPalette.background,
-                      ),
+                          GestureDetector( // capture the gesture on icon
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FoodDonation()),
+                              );
+                            },
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              size: 20,
+                              color: colors.ColorPalette.background,
+                            ),
+                          ),
+
                       Expanded(child: Container()),
                       const Icon(
                         Icons.info_outline,
