@@ -147,7 +147,7 @@ class _FoodDonationState extends State<FoodDonation> {
                   ],
                 ),
                 child: const Text(
-                  '1. You can donate food items like Rice, Dhal, Milk powder, Floor, Cooking Oil, Dry food. We accept any quantity you can provide',
+                  '1. You can donate food items like Rice, Dhal, Sugar, Milk powder, Floor, Cooking Oil, Dry food & Buiscuits. We accept any quantity you can provide',
                   style: TextStyle(
                     fontSize: 15,
                   ),

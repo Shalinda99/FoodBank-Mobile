@@ -15,8 +15,11 @@ class FoodDonationForm extends StatefulWidget {
 class _FoodDonationFormState extends State<FoodDonationForm> {
   final _formKey = GlobalKey<FormState>();
 
-  final List<String> locations = ['Galle', 'Matara', 'Ambalangod'];
-  String selectedLocation = 'Galle';
+  final List<String> locations = ['choose the location','Galle', 'Matara', 'Ambalangod'];
+  String selectedLocation = 'choose the location';
+
+  final List<String> options= ['choose a option','I will come and donate you', 'You have to collect my donation'];
+  String selectedOption = 'choose a option';
 
   TextEditingController _dateController = TextEditingController();
   DateTime? _selectedDate; //null
@@ -59,7 +62,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         );
       }).toList(),
       validator: (value) {
-        if (value == null || value.isEmpty) {
+        if (value == null || value.isEmpty || value=='choose the location') {
           return 'Please choose a location';
         }
         return null;
@@ -100,6 +103,31 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
     );
   }
   
+   Widget _buildSelectOption() {
+    return DropdownButtonFormField<String>(
+      // decoration: const InputDecoration(
+      //   labelText: 'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.' ,
+      // ),
+      value: selectedOption,
+      onChanged: (String? newValue) {
+        setState(() {
+          selectedOption = newValue!;
+        });
+      },
+      items: options.map((String option) {
+        return DropdownMenuItem<String>(
+          value: option,
+          child: Text(option),
+        );
+      }).toList(),
+      validator: (value) {
+        if (value == null || value.isEmpty || value=='choose a option') {
+          return 'Please choose a option';
+        }
+        return null;
+      },
+    );
+  }
 
   @override
   void dispose() {
@@ -207,7 +235,17 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                         const SizedBox(
                           height: 16.0,
                         ),
-                        
+                      const Text(
+                    'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.',
+                    style: TextStyle(
+                      fontSize: 15,
+                    )
+                    ),
+                  
+                        _buildSelectOption(),
+                          const SizedBox(
+                          height: 16.0,
+                        ),
 
                         ElevatedButton(
                           onPressed: () {
