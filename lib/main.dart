@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_application_1/fooddonation.dart';
+import 'package:flutter_application_1/fooddonation.dart';
 import 'package:flutter_application_1/fooddonationForm.dart';
+import 'package:flutter_application_1/NavBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,41 +31,12 @@ class MyHomePage extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        drawer: NavBar(),
         appBar: AppBar(
           title: const Text(
             'FOOD BANK',
             style: TextStyle(color: Color.fromARGB(255, 11, 13, 46)),
           ),
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            color: const Color.fromARGB(255, 11, 13, 46),
-            onPressed: () {},
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.search),
-              color: const Color.fromARGB(255, 11, 13, 46),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: const Icon(Icons.more_vert),
-              color: const Color.fromARGB(255, 11, 13, 46),
-              onPressed: () {},
-            ),
-          ],
-          // flexibleSpace: Image.asset(
-          //   "assets/img1.jpg",
-          //   fit: BoxFit.cover,
-          // ),
-          bottom: const TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.home)),
-              Tab(icon: Icon(Icons.add_box_rounded)),
-              Tab(icon: Icon(Icons.person)),
-            ],
-          ),
-          elevation: 2.0,
-          backgroundColor: const Color.fromARGB(255, 218, 178, 17),
         ),
         body: TabBarView(
           children: [
