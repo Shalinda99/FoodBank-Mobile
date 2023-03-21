@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/fooddonation.dart';
 import 'package:flutter_application_1/fooddonationForm.dart';
+import 'package:flutter_application_1/victimDetails.dart';
+import 'package:flutter_application_1/victimForm.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const FoodDonation(),
+      home: const victimform(),
     );
   }
 }

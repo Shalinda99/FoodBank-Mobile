@@ -2,25 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/fooddonationForm.dart';
 import 'colors.dart' as colors;
-import 'package:flutter_application_1/fooddonationForm.dart'; // import the widget you want to navigate to
+import 'package:flutter_application_1/fooddonationForm.dart';
 
-class FoodDonation extends StatefulWidget {
-  const FoodDonation({Key? key});
+class victiminfo extends StatefulWidget {
+  const victiminfo({super.key});
 
   @override
-  State<FoodDonation> createState() => _FoodDonationState();
+  State<victiminfo> createState() => _victiminfoState();
 }
 
-class _FoodDonationState extends State<FoodDonation> {
-  void _navigateToNextWidget() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) =>
-            const FoodDonationForm(), // the widget you want to navigate to
-      ),
-    );
-  }
-
+// ignore: camel_case_types
+class _victiminfoState extends State<victiminfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +55,7 @@ class _FoodDonationState extends State<FoodDonation> {
                     height: 30,
                   ),
                   const Text(
-                    "Donate Food Items",
+                    "Propose Victims",
                     style: TextStyle(
                       fontSize: 30,
                       color: colors.ColorPalette.background,
@@ -73,7 +65,7 @@ class _FoodDonationState extends State<FoodDonation> {
                     height: 30,
                   ),
                   const Text(
-                    "Help us in this great deed!!",
+                    "Help us in Proposing Victims!!",
                     style: TextStyle(
                       fontSize: 20,
                       color: colors.ColorPalette.background,
@@ -101,7 +93,7 @@ class _FoodDonationState extends State<FoodDonation> {
                         ),
                         Flexible(
                           child: Text(
-                            "How to Donate Food Items?",
+                            "You have not lived today until doing something for someone who can never repay you",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -148,59 +140,13 @@ class _FoodDonationState extends State<FoodDonation> {
                         ],
                       ),
                       child: const Text(
-                        '1. You can donate food items like Rice, Dhal, Sugar, Milk powder, Floor, Cooking Oil, Dry food & Buiscuits. We accept any quantity you can provide',
+                        'You can provide information about victims of food crisis.As a contributor to Sight For All we make sure your provided information will not be disclose to any external party.',
                         style: TextStyle(
                           fontSize: 15,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      decoration: BoxDecoration(
-                        color: colors.ColorPalette.blue,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      // child: const Text(
-                      //   '2. Then you can fill the donation form which will appear next. Here we seek for the information to reach your donations fast.',
-                      //   style: TextStyle(
-                      //     color: Colors.white,
-                      //     fontSize: 15,
-                      //   ),
-                      // ),
-                    ),
-                    const SizedBox(height: 20),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      decoration: BoxDecoration(
-                        color: colors.ColorPalette.background,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      // child: const Text(
-                      //   '3. To make it easier to you we have to options. Either you can come to our warehouse and donate us or we can reach to your place to collect them',
-                      //   style: TextStyle(
-                      //     fontSize: 15,
-                      //   ),
-                      // ),
-                    ),
+
                     const SizedBox(
                       height: 20,
                     ),
@@ -213,11 +159,11 @@ class _FoodDonationState extends State<FoodDonation> {
                     const SizedBox(
                       height: 10,
                     ),
-                    ElevatedButton(
-                      onPressed:
-                          _navigateToNextWidget, // call function to navigate to next widget
-                      child: const Text("Continue"),
-                    ),
+                    // ElevatedButton(
+                    //   onPressed:
+                    //       _navigateToNextWidget, // call function to navigate to next widget
+                    //   child: const Text("Continue"),
+                    // ),
                   ],
                 ),
               ),
