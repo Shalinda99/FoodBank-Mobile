@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/fooddonationForm.dart';
+import 'package:flutter_application_1/victimForm.dart';
 import 'colors.dart' as colors;
 import 'package:flutter_application_1/fooddonationForm.dart';
 
@@ -13,6 +14,15 @@ class victiminfo extends StatefulWidget {
 
 // ignore: camel_case_types
 class _victiminfoState extends State<victiminfo> {
+  void _navigateToNextWidget() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) =>
+            const victimform(), // the widget you want to navigate to
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,24 +116,6 @@ class _victiminfoState extends State<victiminfo> {
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      children: const [
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Flexible(
-                          child: Text(
-                            "Follow the steps below to make your food donation easily",
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
                     Container(
                       padding: const EdgeInsets.all(10),
                       width: MediaQuery.of(context).size.width * 0.8,
@@ -146,7 +138,6 @@ class _victiminfoState extends State<victiminfo> {
                         ),
                       ),
                     ),
-
                     const SizedBox(
                       height: 20,
                     ),
@@ -159,11 +150,11 @@ class _victiminfoState extends State<victiminfo> {
                     const SizedBox(
                       height: 10,
                     ),
-                    // ElevatedButton(
-                    //   onPressed:
-                    //       _navigateToNextWidget, // call function to navigate to next widget
-                    //   child: const Text("Continue"),
-                    // ),
+                    ElevatedButton(
+                      onPressed:
+                          _navigateToNextWidget, // call function to navigate to next widget
+                      child: const Text("Continue"),
+                    ),
                   ],
                 ),
               ),

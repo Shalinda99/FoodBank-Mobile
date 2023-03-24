@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/victimDetails.dart';
 import 'package:intl/intl.dart'; // for the date format
 import 'colors.dart' as colors;
 
@@ -13,20 +14,107 @@ class victimform extends StatefulWidget {
 class _victimformState extends State<victimform> {
   final _formKey = GlobalKey<FormState>();
 
+  Widget _buildFirstNameField() {
+    return TextFormField(
+      maxLength: 40,
+      decoration: const InputDecoration(
+        labelText: 'FirstName',
+      ),
+      validator: (value) {
+        // the input value is automatically taken
+        if (value == null || value.isEmpty) {
+          return 'Please enter your first Name';
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget _buildLastNameField() {
+    return TextFormField(
+      maxLength: 40,
+      decoration: const InputDecoration(
+        labelText: 'LastName',
+      ),
+      validator: (value) {
+        // the input value is automatically taken
+        if (value == null || value.isEmpty) {
+          return 'Please enter the Last Name';
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget _buildNicField() {
+    return TextFormField(
+      maxLength: 12,
+      decoration: const InputDecoration(
+        labelText: 'Nic Number',
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter the NIC Number';
+        }
+        if (value.length == 10) {
+          final RegExp regExp = RegExp(r'^[0-9]{9}[vVxX]$');
+          if (!regExp.hasMatch(value)) {
+            return 'Please enter a valid NIC Number';
+          }
+        } else if (value.length == 12) {
+          final RegExp regExp = RegExp(r'^[0-9]{12}$');
+          if (!regExp.hasMatch(value)) {
+            return 'Please enter a valid NIC Number';
+          }
+        } else {
+          return 'Please enter a valid NIC Number';
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget _buildPhoneNumberField() {
+    return TextFormField(
+      maxLength: 12,
+      decoration: const InputDecoration(
+        labelText: 'Phone Number',
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter the Phone Number';
+        }
+        final RegExp regExp = RegExp(r'^((\+94)?(0)?)[0-9]{9}$');
+        if (!regExp.hasMatch(value)) {
+          return 'Please enter a valid Phone Number';
+        }
+        return null;
+      },
+    );
+  }
+
   Widget _buildAddressField() {
     return TextFormField(
       maxLength: 40,
       decoration: const InputDecoration(
         labelText: 'Address',
       ),
-      //maxLines: 2,
       validator: (value) {
         // the input value is automatically taken
         if (value == null || value.isEmpty) {
-          return 'Please enter your address';
+          return 'Please enter the Address';
         }
         return null;
       },
+    );
+  }
+
+  Widget _buildDescriptionField() {
+    return TextFormField(
+      maxLength: 40,
+      decoration: const InputDecoration(
+        labelText: 'Description',
+      ),
     );
   }
 
@@ -57,12 +145,13 @@ class _victimformState extends State<victimform> {
                     children: [
                       GestureDetector(
                         // capture the gesture on icon
-                        // onTap: () {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(builder: (context) => FoodDonation()),
-                        //   );
-                        // },
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => victiminfo()),
+                          );
+                        },
                         child: const Icon(
                           Icons.arrow_back_ios,
                           size: 20,
@@ -91,7 +180,7 @@ class _victimformState extends State<victimform> {
                     height: 30,
                   ),
                   const Text(
-                    "F..",
+                    "Your Information will not be disclose to any external party",
                     style: TextStyle(
                       fontSize: 15,
                       color: colors.ColorPalette.background,
@@ -114,44 +203,42 @@ class _victimformState extends State<victimform> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        //input fields
-
-                        _buildAddressField(),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        //     _buildLocation(),
-                        //     const SizedBox(
-                        //       height: 16.0,
-                        //     ),
-                        //     _buildDonationDate(),
-                        //     const SizedBox(
-                        //       height: 16.0,
-                        //     ),
-                        //   const Text(
-                        // 'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.',
-                        // style: TextStyle(
-                        //   fontSize: 15,
-                        // )
-                        // ),
-
-                        // _buildSelectOption(),
-                        //   const SizedBox(
+                        // const SizedBox(
                         //   height: 16.0,
                         // ),
+                        // //input fields
 
-                        // ElevatedButton(
-                        //   onPressed: () {
-                        //     if (_formKey.currentState!.validate()) {
-                        //       // Process the form data
-                        //       // print valid form
-                        //     }
-                        //   },
-                        //   child: const Text('Submit'),
+                        // _buildFirstNameField(),
+                        // const SizedBox(
+                        //   height: 16.0,
                         // ),
+                        // _buildLastNameField(),
+                        // const SizedBox(
+                        //   height: 16.0,
+                        // ),
+                        _buildNicField(),
+                        const SizedBox(
+                          height: 16.0,
+                        ),
+                        _buildPhoneNumberField(),
+                        const SizedBox(
+                          height: 16.0,
+                        ),
+
+                        // _buildAddressField(),
+                        // const SizedBox(
+                        //   height: 16.0,
+                        // ),
+                        // _buildDescriptionField(),
+                        ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              // Process the form data
+                              // print valid form
+                            }
+                          },
+                          child: const Text('Submit'),
+                        ),
                       ],
                     ),
                   ),
