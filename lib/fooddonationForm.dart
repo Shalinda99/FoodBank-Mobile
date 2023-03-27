@@ -141,8 +141,8 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkBlue,
-              colors.ColorPalette.blue,
+              colors.ColorPalette.darkOrange,
+              colors.ColorPalette.orange,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -214,49 +214,54 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        //input fields
-
-                        _buildAddressField(),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        _buildLocation(),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        _buildDonationDate(),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                      const Text(
-                    'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.',
-                    style: TextStyle(
-                      fontSize: 15,
-                    )
-                    ),
-                  
-                        _buildSelectOption(),
+                  child: SingleChildScrollView(
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
                           const SizedBox(
-                          height: 16.0,
-                        ),
-
-                        ElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // Process the form data
-                              // print valid form
-                            }
-                          },
-                          child: const Text('Submit'),
-                        ),
-                      ],
+                            height: 16.0,
+                          ),
+                          //input fields
+                  
+                          _buildAddressField(),
+                          const SizedBox(
+                            height: 16.0,
+                          ),
+                          _buildLocation(),
+                          const SizedBox(
+                            height: 16.0,
+                          ),
+                          _buildDonationDate(),
+                          const SizedBox(
+                            height: 50.0,
+                          ),
+                        const Text(
+                      'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.',
+                      style: TextStyle(
+                        fontSize: 15,
+                      )
+                      ),
+                       const SizedBox(
+                            height: 30.0,
+                          ),
+                    
+                          _buildSelectOption(),
+                            const SizedBox(
+                            height: 50.0,
+                          ),
+                  
+                          ElevatedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Process the form data
+                                // print valid form
+                              }
+                            },
+                            child: const Text('Submit'),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

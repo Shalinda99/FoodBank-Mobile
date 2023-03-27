@@ -28,8 +28,8 @@ class _FoodDonationState extends State<FoodDonation> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkBlue,
-              colors.ColorPalette.blue,
+              colors.ColorPalette.darkOrange ,
+              colors.ColorPalette.orange,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -89,136 +89,145 @@ class _FoodDonationState extends State<FoodDonation> {
                     color: colors.ColorPalette.background,
                     borderRadius:
                         BorderRadius.only(topRight: Radius.circular(70))),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      children: const [
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Flexible(
-                          child: Text(
-                            "How to Donate Food Items?",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: colors.ColorPalette.darkBlue,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Row(
+                        children: const [
+                          SizedBox(
+                            width: 30,
+                          ),
+                          Flexible(
+                            child: Text(
+                              "How to Donate Food Items?",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                               
+                              ),
                             ),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: const [
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Flexible(
-                          child: Text(
-                            "Follow the steps below to make your food donation easily",
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      decoration: BoxDecoration(
-                        color: colors.ColorPalette.background,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
+                          )
                         ],
                       ),
-                      child: const Text(
-                        '1. You can donate food items like Rice, Dhal, Sugar, Milk powder, Floor, Cooking Oil, Dry food & Buiscuits. We accept any quantity you can provide',
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: const [
+                          SizedBox(
+                            width: 30,
+                          ),
+                          Flexible(
+                            child: Text(
+                              "Follow the steps below to make your food donation easily",
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        decoration: BoxDecoration(
+                          color: colors.ColorPalette.background,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: const Text(
+                          '1. You can donate food items like Rice, Dhal, Sugar, Milk powder, Floor, Cooking Oil, Dry food & Buiscuits. We accept any quantity you can provide',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        decoration: BoxDecoration(
+                          color: colors.ColorPalette.orange,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: const Text(
+                          '2. Then you can fill the donation form which will appear next. Here we seek for the information to reach your donations fast.',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        decoration: BoxDecoration(
+                          color: colors.ColorPalette.background,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: const Text(
+                          '3. To make it easier to you we have to options. Either you can come to our warehouse and donate us or we can reach to your place to collect them',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const SizedBox(
+                      height: 20,
+                    ),
+                   
+                   
+                   
+                      const Text(
+                        'Click here to continuue',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      decoration: BoxDecoration(
-                        color: colors.ColorPalette.blue,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
+                      const SizedBox(
+                        height: 10,
                       ),
-                      // child: const Text(
-                      //   '2. Then you can fill the donation form which will appear next. Here we seek for the information to reach your donations fast.',
-                      //   style: TextStyle(
-                      //     color: Colors.white,
-                      //     fontSize: 15,
-                      //   ),
-                      // ),
-                    ),
-                    const SizedBox(height: 20),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      decoration: BoxDecoration(
-                        color: colors.ColorPalette.background,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
+                      ElevatedButton(
+                        onPressed:
+                            _navigateToNextWidget, // call function to navigate to next widget
+                        child: const Text("Continue"),
                       ),
-                      // child: const Text(
-                      //   '3. To make it easier to you we have to options. Either you can come to our warehouse and donate us or we can reach to your place to collect them',
-                      //   style: TextStyle(
-                      //     fontSize: 15,
-                      //   ),
-                      // ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Text(
-                      'Click here to continuue',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      onPressed:
-                          _navigateToNextWidget, // call function to navigate to next widget
-                      child: const Text("Continue"),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             )

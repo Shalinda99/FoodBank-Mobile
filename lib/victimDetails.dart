@@ -30,8 +30,8 @@ class _victiminfoState extends State<victiminfo> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkBlue,
-              colors.ColorPalette.blue,
+              colors.ColorPalette.darkOrange,
+              colors.ColorPalette.orange,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -94,12 +94,12 @@ class _victiminfoState extends State<victiminfo> {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 30,
+                      height: 70,
                     ),
                     Row(
                       children: const [
                         SizedBox(
-                          width: 30,
+                          width: 20,
                         ),
                         Flexible(
                           child: Text(
@@ -107,14 +107,14 @@ class _victiminfoState extends State<victiminfo> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: colors.ColorPalette.darkBlue,
+                         
                             ),
                           ),
                         )
                       ],
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 50,
                     ),
                     Container(
                       padding: const EdgeInsets.all(10),
@@ -139,7 +139,7 @@ class _victiminfoState extends State<victiminfo> {
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 40,
                     ),
                     const Text(
                       'Click here to continuue',
@@ -148,7 +148,7 @@ class _victiminfoState extends State<victiminfo> {
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 30,
                     ),
                     ElevatedButton(
                       onPressed:
