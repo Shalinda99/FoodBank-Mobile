@@ -1,111 +1,52 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // for the date format
 import 'colors.dart' as colors;
 
-class FoodDonationForm extends StatefulWidget {
-  const FoodDonationForm({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<FoodDonationForm> createState() => _FoodDonationFormState();
+  _LoginState createState() => _LoginState();
 }
 
-
-class _FoodDonationFormState extends State<FoodDonationForm> {
+class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
 
-  final List<String> locations = ['Galle', 'Matara', 'Ambalangoda'];
-  String selectedLocation = 'Galle';
-
-  TextEditingController _dateController = TextEditingController();
-  DateTime? _selectedDate; //null
-
-
-
-
-  Widget _buildAddressField() {
+  Widget _buildUsernameField() {
     return TextFormField(
       maxLength: 40,
       decoration: const InputDecoration(
-        labelText: 'Address',
+        labelText: 'User name',
       ),
       maxLines: 2,
       validator: (value) {
         // the input value is automatically taken
         if (value == null || value.isEmpty) {
-          return 'Please enter your address';
+          return 'Please enter your usename';
         }
         return null;
       },
     );
   }
 
-  Widget _buildLocation() {
-    return DropdownButtonFormField<String>(
-      decoration: const InputDecoration(
-        labelText: 'Nearest Location',
-      ),
-      value: selectedLocation,
-      onChanged: (String? newValue) {
-        setState(() {
-          selectedLocation = newValue!;
-        });
-      },
-      items: locations.map((String location) {
-        return DropdownMenuItem<String>(
-          value: location,
-          child: Text(location),
-        );
-      }).toList(),
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please choose a location';
-        }
-        return null;
-      },
-    );
-  }
-
-  Widget _buildDonationDate() {
+  Widget _buildPasswordField() {
     return TextFormField(
+      obscureText: true,
+      maxLength: 20,
       decoration: const InputDecoration(
-        labelText: 'Donation Date',
+        labelText: 'Password',
       ),
       validator: (value) {
+        // the input value is automatically taken
         if (value == null || value.isEmpty) {
-          return 'Please enter a date';
+          return 'Please enter your password';
         }
         return null;
       },
-      onTap: () async {
-        // Show the date picker and get the selected date
-        final selectedDate = await showDatePicker(
-          context: context,
-          initialDate: DateTime.now(),
-          firstDate: DateTime.now(),
-          lastDate: DateTime(2100),
-        );
-        // If a date was selected, update the text field
-        if (selectedDate != null) {
-          setState(() {
-            _selectedDate = selectedDate;
-            _dateController.text =
-                DateFormat('yyyy-MM-dd').format(_selectedDate!);
-          });
-        }
-      },
-      controller: _dateController,
-      readOnly: true,
     );
   }
-  
 
   @override
-  void dispose() {
-    _dateController.dispose();
-    super.dispose();
-  } // optional used for date field
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -147,7 +88,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                     height: 30,
                   ),
                   const Text(
-                    "Food Donation Form",
+                    "Login",
                     style: TextStyle(
                       fontSize: 30,
                       color: colors.ColorPalette.background,
@@ -157,9 +98,9 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                     height: 30,
                   ),
                   const Text(
-                    "Fill this form to reach us to your donation..",
+                    "",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 20,
                       color: colors.ColorPalette.background,
                     ),
                   )
@@ -177,7 +118,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Form(
-                    key: _formKey,
+                    //  key: _formKey,
                     child: Column(
                       children: [
                         const SizedBox(
@@ -185,29 +126,50 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                         ),
                         //input fields
 
-                        _buildAddressField(),
+                        _buildUsernameField(),
                         const SizedBox(
                           height: 16.0,
                         ),
-                        _buildLocation(),
+                        _buildPasswordField(),
                         const SizedBox(
                           height: 16.0,
                         ),
-                        _buildDonationDate(),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        
 
                         ElevatedButton(
                           onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // Process the form data
-                              // print valid form
-                            }
+                            // if (_formKey.currentState!.validate()) {
+                            //   // Process the form data
+                            //   // print valid form
+                            // }
                           },
-                          child: const Text('Submit'),
+                          child: const Text('Login'),
                         ),
+                        const SizedBox(
+                          height: 16.0,
+                        ),
+                        const Text(
+      "Don't have an account? Sign Up",
+      style: TextStyle(
+        fontSize: 20,
+        color: colors.ColorPalette.background,
+      ),
+    ),
+    const SizedBox(
+      height: 16.0,
+    ),
+    const Text(
+      "Forgot your password?",
+      style: TextStyle(
+        fontSize: 20,
+        color: colors.ColorPalette.background,
+      ),
+                        // const Text(
+                        //   "Don't have an account? Sign Up",
+                        //   style: TextStyle(
+                        //     fontSize: 20,
+                        //     color: colors.ColorPalette.background,
+                        //   ),
+                        )
                       ],
                     ),
                   ),
