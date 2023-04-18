@@ -50,7 +50,7 @@ class _Home1State extends State<Home1> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor:
-            Color.fromARGB(255, 5, 7, 114), // set the background color
+            Color.fromARGB(255, 4, 13, 59), // set the background color
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home,
