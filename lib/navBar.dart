@@ -1,130 +1,66 @@
-// import 'package:flutter/material.dart';
-// // import 'package:flutter_application_1/fooddonation.dart';
-// import 'package:flutter_application_1/fooddonationForm.dart';
+import 'package:flutter/material.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
+class NavBar extends StatelessWidget {
+  const NavBar({super.key});
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+        child: ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        const SizedBox(
+            height: 110,
+            child: UserAccountsDrawerHeader(
+              accountName: Text(
+                'FOOD BANK',
+                style: TextStyle(
+                    fontSize: 25.0, color: Color.fromARGB(255, 11, 13, 46)),
+              ),
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false, //to remove debug badge
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: const FoodDonationForm(),
-//     );
-//   }
-// }
+              // ignore: prefer_const_constructors
+              decoration: BoxDecoration(
+                color: Colors.orange,
+              ),
+              accountEmail: Text(
+                'Feed The Need',
+                style: TextStyle(
+                    fontSize: 15.0, color: Color.fromARGB(255, 11, 13, 46)),
+              ),
+            )),
+        ListTile(
+          leading: const Icon(Icons.home_filled),
+          title: const Text('About Us'),
+          // ignore: avoid_returning_null_for_void
+          onTap: () => null,
+        ),
+        ListTile(
+          leading: const Icon(Icons.question_mark_outlined),
+          title: const Text('Why Food Bank?'),
+          // ignore: avoid_returning_null_for_void
+          onTap: () => null,
+        ),
+        ListTile(
+          leading: const Icon(Icons.notes_outlined),
+          title: const Text('Projects'),
+          // ignore: avoid_returning_null_for_void
+          onTap: () => null,
+        ),
+        ListTile(
+          leading: const Icon(Icons.food_bank_sharp),
+          title: const Text('Donate Food'),
+          // ignore: avoid_returning_null_for_void
+          onTap: () => null,
+        ),
+        ListTile(
+          leading: const Icon(Icons.money),
+          title: const Text('Donate Money'),
+          // ignore: avoid_returning_null_for_void
+          onTap: () => null,
+        )
+      ],
+    ));
+  }
+}
 
-// class MyHomePage extends StatelessWidget {
-//   const MyHomePage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return DefaultTabController(
-//       length: 3,
-//       child: Scaffold(
-//         appBar: AppBar(
-//           title: const Text(
-//             'FOOD BANK',
-//             style: TextStyle(color: Color.fromARGB(255, 11, 13, 46)),
-//           ),
-//           leading: IconButton(
-//             icon: const Icon(Icons.menu),
-//             color: const Color.fromARGB(255, 11, 13, 46),
-//             onPressed: () {},
-//           ),
-//           actions: <Widget>[
-//             IconButton(
-//               icon: const Icon(Icons.search),
-//               color: const Color.fromARGB(255, 11, 13, 46),
-//               onPressed: () {},
-//             ),
-//             IconButton(
-//               icon: const Icon(Icons.more_vert),
-//               color: const Color.fromARGB(255, 11, 13, 46),
-//               onPressed: () {},
-//             ),
-//           ],
-//           // flexibleSpace: Image.asset(
-//           //   "assets/img1.jpg",
-//           //   fit: BoxFit.cover,
-//           // ),
-//           bottom: const TabBar(
-//             tabs: [
-//               Tab(icon: Icon(Icons.home)),
-//               Tab(icon: Icon(Icons.add_box_rounded)),
-//               Tab(icon: Icon(Icons.person)),
-//             ],
-//           ),
-//           elevation: 2.0,
-//           backgroundColor: const Color.fromARGB(255, 218, 178, 17),
-//         ),
-//         body: TabBarView(
-//           children: [
-//             tab1(),
-//             tab2(),
-//             tab3(),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// Widget tab1() {
-//   return Container(
-//     constraints: const BoxConstraints.expand(),
-//     decoration: const BoxDecoration(
-//       image: DecorationImage(
-//           image: AssetImage("assets/img1.jpg"), fit: BoxFit.cover),
-//     ),
-//     child: const Center(
-//       child: Text(
-//         'Home',
-//         style:
-//             TextStyle(fontSize: 34, color: Color.fromARGB(255, 245, 244, 247)),
-//       ),
-//     ),
-//   );
-// }
-
-// Widget tab2() {
-//   return Container(
-//     constraints: const BoxConstraints.expand(),
-//     decoration: const BoxDecoration(
-//       image: DecorationImage(
-//           image: AssetImage("assets/img2.jpg"), fit: BoxFit.cover),
-//     ),
-//     child: const Center(
-//       child: Text(
-//         'Projects',
-//         style:
-//             TextStyle(fontSize: 34, color: Color.fromARGB(255, 248, 244, 244)),
-//       ),
-//     ),
-//   );
-// }
-
-// Widget tab3() {
-//   return Container(
-//     constraints: const BoxConstraints.expand(),
-//     decoration: const BoxDecoration(
-//       image: DecorationImage(
-//           image: AssetImage("assets/img3.jpg"), fit: BoxFit.cover),
-//     ),
-//     child: const Center(
-//       child: Text(
-//         'Victims',
-//         style:
-//             TextStyle(fontSize: 34, color: Color.fromARGB(255, 248, 246, 246)),
-//       ),
-//     ),
-//   );
-// }
+class Boxfit {}
