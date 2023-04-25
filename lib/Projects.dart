@@ -72,13 +72,12 @@ class _ProjectsState extends State<Projects> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(0.0),
-                      //     new BoxShadow(
-                      //       color: Colors.grey.withOpacity(0.3),
-                      //       offset: new Offset(-10.0, 10.0),
-                      //       blurRadius: 20.0,
-                      //       spreadRadius: 4.0)],
-                            
-                      // ),
+                        //     new BoxShadow(
+                        //       color: Colors.grey.withOpacity(0.3),
+                        //       offset: new Offset(-10.0, 10.0),
+                        //       blurRadius: 20.0,
+                        //       spreadRadius: 4.0)],
+                      ),
                     ),
                   ),
                 ),
