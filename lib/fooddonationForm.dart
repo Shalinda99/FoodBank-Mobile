@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // for the date format
 import 'colors.dart' as colors;
+import 'fooddonation.dart';
 
 class FoodDonationForm extends StatefulWidget {
   const FoodDonationForm({Key? key}) : super(key: key);
@@ -14,8 +15,11 @@ class FoodDonationForm extends StatefulWidget {
 class _FoodDonationFormState extends State<FoodDonationForm> {
   final _formKey = GlobalKey<FormState>();
 
-  final List<String> locations = ['Galle', 'Matara', 'Ambalangod'];
-  String selectedLocation = 'Galle';
+  final List<String> locations = ['choose the location','Galle', 'Matara', 'Ambalangod'];
+  String selectedLocation = 'choose the location';
+
+  final List<String> options= ['choose a option','I will come and donate you', 'You have to collect my donation'];
+  String selectedOption = 'choose a option';
 
   TextEditingController _dateController = TextEditingController();
   DateTime? _selectedDate; //null
@@ -58,7 +62,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         );
       }).toList(),
       validator: (value) {
-        if (value == null || value.isEmpty) {
+        if (value == null || value.isEmpty || value=='choose the location') {
           return 'Please choose a location';
         }
         return null;
@@ -99,6 +103,31 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
     );
   }
   
+   Widget _buildSelectOption() {
+    return DropdownButtonFormField<String>(
+      // decoration: const InputDecoration(
+      //   labelText: 'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.' ,
+      // ),
+      value: selectedOption,
+      onChanged: (String? newValue) {
+        setState(() {
+          selectedOption = newValue!;
+        });
+      },
+      items: options.map((String option) {
+        return DropdownMenuItem<String>(
+          value: option,
+          child: Text(option),
+        );
+      }).toList(),
+      validator: (value) {
+        if (value == null || value.isEmpty || value=='choose a option') {
+          return 'Please choose a option';
+        }
+        return null;
+      },
+    );
+  }
 
   @override
   void dispose() {
@@ -112,8 +141,8 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkBlue,
-              colors.ColorPalette.blue,
+              colors.ColorPalette.darkOrange,
+              colors.ColorPalette.orange,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -130,11 +159,20 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                 children: [
                   Row(
                     children: [
-                      const Icon(
-                        Icons.arrow_back_ios,
-                        size: 20,
-                        color: colors.ColorPalette.background,
-                      ),
+                          GestureDetector( // capture the gesture on icon
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FoodDonation()),
+                              );
+                            },
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              size: 20,
+                              color: colors.ColorPalette.background,
+                            ),
+                          ),
+
                       Expanded(child: Container()),
                       const Icon(
                         Icons.info_outline,
@@ -176,39 +214,54 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        //input fields
-
-                        _buildAddressField(),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        _buildLocation(),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        _buildDonationDate(),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        
-
-                        ElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // Process the form data
-                              // print valid form
-                            }
-                          },
-                          child: const Text('Submit'),
-                        ),
-                      ],
+                  child: SingleChildScrollView(
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          const SizedBox(
+                            height: 16.0,
+                          ),
+                          //input fields
+                  
+                          _buildAddressField(),
+                          const SizedBox(
+                            height: 16.0,
+                          ),
+                          _buildLocation(),
+                          const SizedBox(
+                            height: 16.0,
+                          ),
+                          _buildDonationDate(),
+                          const SizedBox(
+                            height: 50.0,
+                          ),
+                        const Text(
+                      'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.',
+                      style: TextStyle(
+                        fontSize: 15,
+                      )
+                      ),
+                       const SizedBox(
+                            height: 30.0,
+                          ),
+                    
+                          _buildSelectOption(),
+                            const SizedBox(
+                            height: 50.0,
+                          ),
+                  
+                          ElevatedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Process the form data
+                                // print valid form
+                              }
+                            },
+                            child: const Text('Submit'),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
