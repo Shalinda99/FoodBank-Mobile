@@ -8,8 +8,13 @@ class SettingsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 16, 159, 88),
-        borderRadius: BorderRadius.only(bottomRight: Radius.circular(70)),
+        color: Color.fromARGB(255, 21, 10, 54),
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(70),
+          bottomLeft: Radius.circular(70),
+          topRight: Radius.circular(70),
+          topLeft: Radius.circular(70),
+        ),
       ),
     );
   }
