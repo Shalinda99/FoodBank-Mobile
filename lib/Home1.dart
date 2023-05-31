@@ -42,7 +42,7 @@ class _Home1State extends State<Home1> {
           ),
         ],
         elevation: 2.0,
-        backgroundColor: const Color.fromARGB(255, 218, 178, 17),
+        backgroundColor: colors.ColorPalette.orange,
       ),
       body: IndexedStack(
         index: _selectedIndex,
@@ -50,7 +50,7 @@ class _Home1State extends State<Home1> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor:
-            Color.fromARGB(255, 4, 13, 59), // set the background color
+            colors.ColorPalette.darkBlue, // set the background color
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home,

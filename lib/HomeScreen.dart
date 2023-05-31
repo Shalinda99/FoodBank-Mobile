@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/home.dart';
 import 'package:flutter_application_1/Home1.dart';
+import 'colors.dart' as colors;
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -57,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                     height: MediaQuery.of(context).size.height / 1.58,
                     padding: EdgeInsets.only(top: 40, bottom: 30),
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: colors.ColorPalette.orange,
                       borderRadius:
                           BorderRadius.only(topLeft: Radius.circular(100)),
                     ),
@@ -87,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 40),
                         Material(
-                          color: Color.fromARGB(255, 4, 13, 59),
+                          color: colors.ColorPalette.darkBlue,
                           borderRadius: BorderRadius.circular(10),
                           child: InkWell(
                             onTap: () {

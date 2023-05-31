@@ -10,11 +10,11 @@ class ContactTab extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 126, 173, 198),
+        color: colors.ColorPalette.darkBlue,
         borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(70),
+          // bottomRight: Radius.circular(70),
           bottomLeft: Radius.circular(70),
-          topLeft: Radius.circular(70),
+          // topLeft: Radius.circular(70),
           topRight: Radius.circular(70),
         ),
       ),
@@ -26,12 +26,14 @@ class ContactTab extends StatelessWidget {
             style: TextStyle(
               fontSize: 32.0,
               fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           const Text(
             "    We value your feedback and are always looking\n   for ways to improve our products and services\n",
             style: TextStyle(
               fontSize: 18.0,
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           Padding(
@@ -76,14 +78,14 @@ class ContactTab extends StatelessWidget {
                 MaterialButton(
                   height: 50.0,
                   minWidth: double.infinity,
-                  color: Color(0xff333333),
+                  color: colors.ColorPalette.orange,
                   onPressed: () {},
                   child: const Text(
                     "SEND",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),

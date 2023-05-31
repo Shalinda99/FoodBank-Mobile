@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Projects.dart';
+import 'package:flutter_application_1/fooddonation.dart';
+import 'package:flutter_application_1/moneyDonation.dart';
+import 'colors.dart' as colors;
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -21,7 +24,7 @@ class NavBar extends StatelessWidget {
 
               // ignore: prefer_const_constructors
               decoration: BoxDecoration(
-                color: Colors.orange,
+                color: colors.ColorPalette.orange,
               ),
               accountEmail: Text(
                 'Feed The Need',
@@ -76,7 +79,7 @@ class NavBar extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Projects(),
+                  builder: (context) => FoodDonation(),
                 ));
             // Add your code for when this image is tapped.
           },
@@ -89,7 +92,7 @@ class NavBar extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Projects(),
+                  builder: (context) => moneyDonation(),
                 ));
             // Add your code for when this image is tapped.
           },

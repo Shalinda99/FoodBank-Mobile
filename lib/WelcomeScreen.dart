@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/HomeScreen.dart';
+import 'colors.dart' as colors;
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -23,7 +24,8 @@ class WelcomeScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height / 1.6,
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: colors.ColorPalette.orange,
+                      // color: Colors.orange,
                       borderRadius:
                           BorderRadius.only(bottomRight: Radius.circular(70)),
                     ),
@@ -41,7 +43,7 @@ class WelcomeScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 2.666,
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: colors.ColorPalette.orange,
                 ),
               ),
             ),
@@ -58,7 +60,7 @@ class WelcomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Learning Is Everything",
+                      "Donate Food & Money online",
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
@@ -70,17 +72,17 @@ class WelcomeScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40),
                       child: Text(
-                        "Learning with Pleasure with Dear Programmer,Whenever you run",
+                        "Together, we can make a better tomorrow a reality",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 18,
                           color: Colors.black.withOpacity(0.6),
                         ),
                       ),
                     ),
                     SizedBox(height: 40),
                     Material(
-                      color: Color.fromARGB(255, 24, 172, 189),
+                      color: colors.ColorPalette.darkBlue,
                       borderRadius: BorderRadius.circular(10),
                       child: InkWell(
                         onTap: () {
@@ -92,10 +94,14 @@ class WelcomeScreen extends StatelessWidget {
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(
-                              vertical: 15, horizontal: 80),
+                              vertical: 10, horizontal: 70),
                           child: Text(
                             "Get Start",
-                            style: TextStyle(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 255, 255, 255)
+                                  .withOpacity(0.9),
+                            ),
                           ),
                         ),
                       ),

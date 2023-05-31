@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ContactTab.dart';
 import 'package:flutter_application_1/fooddonation.dart';
+import 'package:flutter_application_1/moneyDonation.dart';
+import 'package:flutter_application_1/victimDetails.dart';
 import 'colors.dart' as colors;
 
 class HomeTab extends StatelessWidget {
@@ -59,7 +61,7 @@ class HomeTab extends StatelessWidget {
                     height: MediaQuery.of(context).size.height / 2,
                     padding: EdgeInsets.only(top: 40, bottom: 30),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 203, 147, 62),
+                      color: colors.ColorPalette.orange,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(70),
                         topRight: Radius.circular(70),
@@ -100,7 +102,7 @@ class HomeTab extends StatelessWidget {
                                   width:
                                       25.0), // Add some space between the image and text
                               Material(
-                                color: Color.fromARGB(255, 4, 13, 59),
+                                color: colors.ColorPalette.darkBlue,
                                 borderRadius: BorderRadius.circular(10),
                                 child: InkWell(
                                   onTap: () {
@@ -133,7 +135,7 @@ class HomeTab extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => FoodDonation(),
+                                  builder: (context) => moneyDonation(),
                                 ));
                             // Add your code for when this image is tapped.
                           },
@@ -151,14 +153,14 @@ class HomeTab extends StatelessWidget {
                                   width:
                                       25.0), // Add some space between the image and text
                               Material(
-                                color: Color.fromARGB(255, 4, 13, 59),
+                                color: colors.ColorPalette.darkBlue,
                                 borderRadius: BorderRadius.circular(10),
                                 child: InkWell(
                                   onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => FoodDonation(),
+                                          builder: (context) => moneyDonation(),
                                         ));
                                   },
                                   child: Container(
@@ -184,7 +186,7 @@ class HomeTab extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => FoodDonation(),
+                                  builder: (context) => victiminfo(),
                                 ));
                             // Add your code for when this image is tapped.
                           },
@@ -202,14 +204,14 @@ class HomeTab extends StatelessWidget {
                                   width:
                                       25.0), // Add some space between the image and text
                               Material(
-                                color: Color.fromARGB(255, 4, 13, 59),
+                                color: colors.ColorPalette.darkBlue,
                                 borderRadius: BorderRadius.circular(10),
                                 child: InkWell(
                                   onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => FoodDonation(),
+                                          builder: (context) => victiminfo(),
                                         ));
                                   },
                                   child: Container(

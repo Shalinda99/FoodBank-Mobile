@@ -11,8 +11,8 @@ class SettingsTab extends StatelessWidget {
         color: Color.fromARGB(255, 21, 10, 54),
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(70),
-          bottomLeft: Radius.circular(70),
-          topRight: Radius.circular(70),
+          // bottomLeft: Radius.circular(70),
+          // topRight: Radius.circular(70),
           topLeft: Radius.circular(70),
         ),
       ),

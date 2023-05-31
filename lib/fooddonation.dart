@@ -28,7 +28,7 @@ class _FoodDonationState extends State<FoodDonation> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkOrange ,
+              colors.ColorPalette.darkOrange,
               colors.ColorPalette.orange,
             ],
             begin: FractionalOffset(0.0, 0.4),
@@ -106,7 +106,6 @@ class _FoodDonationState extends State<FoodDonation> {
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                               
                               ),
                             ),
                           )
@@ -202,16 +201,12 @@ class _FoodDonationState extends State<FoodDonation> {
                           ),
                         ),
                       ),
-                    
                       const SizedBox(
                         height: 20,
                       ),
                       const SizedBox(
-                      height: 20,
-                    ),
-                   
-                   
-                   
+                        height: 20,
+                      ),
                       const Text(
                         'Click here to continuue',
                         style: TextStyle(
