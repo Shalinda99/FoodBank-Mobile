@@ -30,8 +30,8 @@ class _moneyDonationState extends State<moneyDonation> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkOrange,
-              colors.ColorPalette.orange,
+              colors.ColorPalette.green,
+              colors.ColorPalette.lightGreen,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -150,8 +150,11 @@ class _moneyDonationState extends State<moneyDonation> {
                       height: 30,
                     ),
                     ElevatedButton(
-                      onPressed:
-                          _navigateToNextWidget, // call function to navigate to next widget
+                      onPressed: _navigateToNextWidget,
+                      style: ElevatedButton.styleFrom(
+                        primary: colors.ColorPalette
+                            .darkGreen, // set the background color of the button
+                      ), // call function to navigate to next widget
                       child: const Text("Pay here"),
                     ),
                   ],

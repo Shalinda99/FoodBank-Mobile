@@ -1,245 +1,186 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ContactTab.dart';
-import 'package:flutter_application_1/fooddonation.dart';
-import 'package:flutter_application_1/moneyDonation.dart';
-import 'package:flutter_application_1/victimDetails.dart';
 import 'colors.dart' as colors;
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
 
   @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Stack(
-          children: [
-            Stack(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(100),
-                    ),
-                    image: DecorationImage(
-                      image: AssetImage("assets/img5.jpg"),
-                    ),
-                  ),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: const [
-                        // Text(
-                        //   "Feed The Need",
-                        //   style: TextStyle(
-                        //     fontSize: 34,
-                        //     color: Color.fromARGB(255, 248, 246, 246),
-                        //   ),
-                        // ),
-                        SizedBox(height: 4), // add some space between the lines
-                        // Text(
-                        //   "Together, we can make a better\n tomorrow a reality",
-                        //   style: TextStyle(
-                        //     fontSize: 22,
-                        //     color: Color.fromARGB(255, 255, 255, 255),
-                        //   ),
-                        // ),
-                      ],
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height / 2,
-                    padding: EdgeInsets.only(top: 40, bottom: 30),
-                    decoration: BoxDecoration(
-                      color: colors.ColorPalette.orange,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(70),
-                        topRight: Radius.circular(70),
-                      ),
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          "Together We're On A Plan To \n        End Human Hunger",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1,
-                            wordSpacing: 2,
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          SizedBox(
+            height: height * 0.05,
+          ),
+          Expanded(
+            child: MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: ListView(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 1, top: 10),
+                    height: 170,
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0),
+                            topLeft: Radius.circular(10.0),
+                            topRight: Radius.circular(10.0),
                           ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              offset: Offset(-10.0, 10.0),
+                              blurRadius: 20.0,
+                              spreadRadius: 4.0,
+                            )
+                          ],
                         ),
-                        SizedBox(height: 15),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => FoodDonation(),
-                                ));
-                            // Add your code for when this image is tapped.
-                          },
-                          child: Row(
+                        padding: const EdgeInsets.only(
+                          left: 32,
+                          top: 50.0,
+                          bottom: 50,
+                        ),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(left: 50.0),
-                                child: Image.asset(
-                                  "assets/img7.png",
-                                  width: 70.0,
-                                  height: 70.0,
-                                ),
+                              Text(
+                                "Food Donation",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 12),
                               ),
-                              SizedBox(
-                                  width:
-                                      25.0), // Add some space between the image and text
-                              Material(
-                                color: colors.ColorPalette.darkBlue,
-                                borderRadius: BorderRadius.circular(10),
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => FoodDonation(),
-                                        ));
-                                  },
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 30),
-                                    child: Text(
-                                      "Food Donation",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255)
-                                                .withOpacity(0.9),
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                              const SizedBox(
+                                height: 2,
                               ),
-                            ],
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => moneyDonation(),
-                                ));
-                            // Add your code for when this image is tapped.
-                          },
-                          child: Row(
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(left: 50.0),
-                                child: Image.asset(
-                                  "assets/img6.png",
-                                  width: 70.0,
-                                  height: 70.0,
+                              Text(
+                                "Title",
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ),
-                              SizedBox(
-                                  width:
-                                      25.0), // Add some space between the image and text
-                              Material(
-                                color: colors.ColorPalette.darkBlue,
-                                borderRadius: BorderRadius.circular(10),
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => moneyDonation(),
-                                        ));
-                                  },
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 30),
-                                    child: Text(
-                                      "Money Donation",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255)
-                                                .withOpacity(0.9),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => victiminfo(),
-                                ));
-                            // Add your code for when this image is tapped.
-                          },
-                          child: Row(
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(left: 50.0),
-                                child: Image.asset(
-                                  "assets/img8.png",
-                                  width: 70.0,
-                                  height: 70.0,
-                                ),
-                              ),
-                              SizedBox(
-                                  width:
-                                      25.0), // Add some space between the image and text
-                              Material(
-                                color: colors.ColorPalette.darkBlue,
-                                borderRadius: BorderRadius.circular(10),
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => victiminfo(),
-                                        ));
-                                  },
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 30),
-                                    child: Text(
-                                      "Propose Victims",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255)
-                                                .withOpacity(0.9),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                              )
+                            ])),
                   ),
-                ),
-              ],
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 1, top: 1),
+                    height: 170,
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          color: colors.ColorPalette.green,
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0),
+                            topLeft: Radius.circular(10.0),
+                            topRight: Radius.circular(10.0),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              offset: Offset(-10.0, 10.0),
+                              blurRadius: 20.0,
+                              spreadRadius: 4.0,
+                            )
+                          ],
+                        ),
+                        padding: const EdgeInsets.only(
+                          left: 32,
+                          top: 50.0,
+                          bottom: 50,
+                        ),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Money Donation",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                              const SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                "Title",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            ])),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10, top: 1),
+                    height: 170,
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0),
+                            topLeft: Radius.circular(10.0),
+                            topRight: Radius.circular(10.0),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              offset: Offset(-10.0, 10.0),
+                              blurRadius: 20.0,
+                              spreadRadius: 4.0,
+                            )
+                          ],
+                        ),
+                        padding: const EdgeInsets.only(
+                          left: 32,
+                          top: 50.0,
+                          bottom: 50,
+                        ),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Propose Victim",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 12),
+                              ),
+                              const SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                "Title",
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            ])),
+                  )
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

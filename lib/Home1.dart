@@ -42,7 +42,7 @@ class _Home1State extends State<Home1> {
           ),
         ],
         elevation: 2.0,
-        backgroundColor: colors.ColorPalette.orange,
+        backgroundColor: colors.ColorPalette.green,
       ),
       body: IndexedStack(
         index: _selectedIndex,
@@ -50,7 +50,7 @@ class _Home1State extends State<Home1> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor:
-            colors.ColorPalette.darkBlue, // set the background color
+            colors.ColorPalette.darkGreen, // set the background color
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home,
@@ -72,7 +72,7 @@ class _Home1State extends State<Home1> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: colors.ColorPalette.lightGreen,
         onTap: (index) {
           setState(() {
             _selectedIndex = index;

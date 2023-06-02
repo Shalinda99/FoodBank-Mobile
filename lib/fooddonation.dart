@@ -28,8 +28,8 @@ class _FoodDonationState extends State<FoodDonation> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkOrange,
-              colors.ColorPalette.orange,
+              colors.ColorPalette.green,
+              colors.ColorPalette.lightGreen,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -159,7 +159,7 @@ class _FoodDonationState extends State<FoodDonation> {
                         padding: const EdgeInsets.all(10),
                         width: MediaQuery.of(context).size.width * 0.8,
                         decoration: BoxDecoration(
-                          color: colors.ColorPalette.orange,
+                          color: colors.ColorPalette.green,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
@@ -218,7 +218,11 @@ class _FoodDonationState extends State<FoodDonation> {
                       ),
                       ElevatedButton(
                         onPressed:
-                            _navigateToNextWidget, // call function to navigate to next widget
+                            _navigateToNextWidget, // call function to navigate to the next widget
+                        style: ElevatedButton.styleFrom(
+                          primary: colors.ColorPalette
+                              .darkGreen, // set the background color of the button
+                        ),
                         child: const Text("Continue"),
                       ),
                     ],

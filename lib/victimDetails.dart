@@ -30,8 +30,8 @@ class _victiminfoState extends State<victiminfo> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkOrange,
-              colors.ColorPalette.orange,
+              colors.ColorPalette.green,
+              colors.ColorPalette.lightGreen,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -107,7 +107,6 @@ class _victiminfoState extends State<victiminfo> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                         
                             ),
                           ),
                         )
@@ -151,8 +150,11 @@ class _victiminfoState extends State<victiminfo> {
                       height: 30,
                     ),
                     ElevatedButton(
-                      onPressed:
-                          _navigateToNextWidget, // call function to navigate to next widget
+                      onPressed: _navigateToNextWidget,
+                      style: ElevatedButton.styleFrom(
+                        primary: colors.ColorPalette
+                            .darkGreen, // set the background color of the button
+                      ), // call function to navigate to next widget
                       child: const Text("Continue"),
                     ),
                   ],

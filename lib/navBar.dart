@@ -24,7 +24,7 @@ class NavBar extends StatelessWidget {
 
               // ignore: prefer_const_constructors
               decoration: BoxDecoration(
-                color: colors.ColorPalette.orange,
+                color: colors.ColorPalette.green,
               ),
               accountEmail: Text(
                 'Feed The Need',
