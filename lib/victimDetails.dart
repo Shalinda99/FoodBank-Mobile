@@ -4,6 +4,9 @@ import 'package:flutter_application_1/fooddonationForm.dart';
 import 'package:flutter_application_1/victimForm.dart';
 import 'colors.dart' as colors;
 import 'package:flutter_application_1/fooddonationForm.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 
 class victiminfo extends StatefulWidget {
   const victiminfo({super.key});
@@ -18,7 +21,7 @@ class _victiminfoState extends State<victiminfo> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) =>
-            const victimform(), // the widget you want to navigate to
+            const VictimForm(), // the widget you want to navigate to
       ),
     );
   }
