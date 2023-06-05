@@ -176,14 +176,14 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                         child: const Icon(
                           Icons.arrow_back_ios,
                           size: 20,
-                          color: colors.ColorPalette.background,
+                          color: colors.ColorPalette.white,
                         ),
                       ),
                       Expanded(child: Container()),
                       const Icon(
                         Icons.info_outline,
                         size: 20,
-                        color: colors.ColorPalette.background,
+                        color: colors.ColorPalette.white,
                       ),
                     ],
                   ),
@@ -194,7 +194,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                     "Food Donation Form",
                     style: TextStyle(
                       fontSize: 30,
-                      color: colors.ColorPalette.background,
+                      color: colors.ColorPalette.white,
                     ),
                   ),
                   const SizedBox(
@@ -204,7 +204,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                     "Fill this form to reach us to your donation..",
                     style: TextStyle(
                       fontSize: 15,
-                      color: colors.ColorPalette.background,
+                      color: colors.ColorPalette.white,
                     ),
                   )
                 ],
@@ -213,7 +213,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(
-                  color: colors.ColorPalette.background,
+                  color: colors.ColorPalette.white,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(70),
                   ),

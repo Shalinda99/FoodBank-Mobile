@@ -24,7 +24,12 @@ class _ProjectsState extends State<Projects> {
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(50),
               ),
-              color: colors.ColorPalette.darkBlue,
+              gradient: LinearGradient(
+                colors: [
+                  colors.ColorPalette.green,
+                  colors.ColorPalette.white,
+                ],
+              ),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.3),
@@ -58,7 +63,7 @@ class _ProjectsState extends State<Projects> {
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w600,
-                        color: Color.fromARGB(255, 10, 10, 71)),
+                        color: Color.fromARGB(255, 0, 0, 0)),
                   ),
                 ),
               ],
@@ -112,7 +117,7 @@ class _ProjectsState extends State<Projects> {
                         const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                     child: Container(
                         decoration: BoxDecoration(
-                          color: colors.ColorPalette.lightBlue,
+                          color: colors.ColorPalette.lightGreen,
                           borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(80.0),
                           ),
@@ -136,7 +141,8 @@ class _ProjectsState extends State<Projects> {
                               Text(
                                 "Project 1",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 12),
                               ),
                               const SizedBox(
                                 height: 2,
@@ -144,7 +150,7 @@ class _ProjectsState extends State<Projects> {
                               Text(
                                 "Title of the Project",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -158,7 +164,7 @@ class _ProjectsState extends State<Projects> {
                         const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                     child: Container(
                         decoration: BoxDecoration(
-                          color: colors.ColorPalette.blue,
+                          color: colors.ColorPalette.green,
                           borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(80.0),
                             bottomLeft: Radius.circular(80.0),
@@ -183,7 +189,8 @@ class _ProjectsState extends State<Projects> {
                               Text(
                                 "project 2",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 12),
                               ),
                               const SizedBox(
                                 height: 2,
@@ -191,7 +198,7 @@ class _ProjectsState extends State<Projects> {
                               Text(
                                 "Title of the Project",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -205,7 +212,7 @@ class _ProjectsState extends State<Projects> {
                         const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                     child: Container(
                         decoration: BoxDecoration(
-                          color: colors.ColorPalette.lightBlue,
+                          color: colors.ColorPalette.lightGreen,
                           borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(80.0),
                           ),
@@ -229,7 +236,8 @@ class _ProjectsState extends State<Projects> {
                               Text(
                                 "project 3",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 12),
                               ),
                               const SizedBox(
                                 height: 2,
@@ -237,7 +245,7 @@ class _ProjectsState extends State<Projects> {
                               Text(
                                 "Title of the Project",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
                                 ),

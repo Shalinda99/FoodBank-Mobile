@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class ColorPalette {
-  static const Color background = Color(0xFFFFFFFF);
+  static const Color white = Color(0xFFFFFFFF);
 
   static const Color orange = Color.fromARGB(255, 255, 160, 36);
   static const Color lightOrange = Color(0xFFFFDAB9);

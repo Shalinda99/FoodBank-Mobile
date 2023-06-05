@@ -49,13 +49,13 @@ class _FoodDonationState extends State<FoodDonation> {
                       const Icon(
                         Icons.arrow_back_ios,
                         size: 20,
-                        color: colors.ColorPalette.background,
+                        color: colors.ColorPalette.white,
                       ),
                       Expanded(child: Container()),
                       const Icon(
                         Icons.info_outline,
                         size: 20,
-                        color: colors.ColorPalette.background,
+                        color: colors.ColorPalette.white,
                       ),
                     ],
                   ),
@@ -66,7 +66,7 @@ class _FoodDonationState extends State<FoodDonation> {
                     "Donate Food Items",
                     style: TextStyle(
                       fontSize: 30,
-                      color: colors.ColorPalette.background,
+                      color: colors.ColorPalette.white,
                     ),
                   ),
                   const SizedBox(
@@ -76,7 +76,7 @@ class _FoodDonationState extends State<FoodDonation> {
                     "Help us in this great deed!!",
                     style: TextStyle(
                       fontSize: 20,
-                      color: colors.ColorPalette.background,
+                      color: colors.ColorPalette.white,
                     ),
                   )
                 ],
@@ -86,7 +86,7 @@ class _FoodDonationState extends State<FoodDonation> {
               child: Container(
                 // white bg content
                 decoration: const BoxDecoration(
-                    color: colors.ColorPalette.background,
+                    color: colors.ColorPalette.white,
                     borderRadius:
                         BorderRadius.only(topRight: Radius.circular(70))),
                 child: SingleChildScrollView(
@@ -136,7 +136,7 @@ class _FoodDonationState extends State<FoodDonation> {
                         padding: const EdgeInsets.all(10),
                         width: MediaQuery.of(context).size.width * 0.8,
                         decoration: BoxDecoration(
-                          color: colors.ColorPalette.background,
+                          color: colors.ColorPalette.white,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
@@ -183,7 +183,7 @@ class _FoodDonationState extends State<FoodDonation> {
                         padding: const EdgeInsets.all(10),
                         width: MediaQuery.of(context).size.width * 0.8,
                         decoration: BoxDecoration(
-                          color: colors.ColorPalette.background,
+                          color: colors.ColorPalette.white,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(

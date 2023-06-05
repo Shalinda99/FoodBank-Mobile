@@ -147,14 +147,14 @@ class _victimformState extends State<victimform> {
                         child: const Icon(
                           Icons.arrow_back_ios,
                           size: 20,
-                          color: colors.ColorPalette.background,
+                          color: colors.ColorPalette.white,
                         ),
                       ),
                       Expanded(child: Container()),
                       const Icon(
                         Icons.info_outline,
                         size: 20,
-                        color: colors.ColorPalette.background,
+                        color: colors.ColorPalette.white,
                       ),
                     ],
                   ),
@@ -165,7 +165,7 @@ class _victimformState extends State<victimform> {
                     "Victim Information Form",
                     style: TextStyle(
                       fontSize: 30,
-                      color: colors.ColorPalette.background,
+                      color: colors.ColorPalette.white,
                     ),
                   ),
                   const SizedBox(
@@ -175,7 +175,7 @@ class _victimformState extends State<victimform> {
                     "Your Information will not be disclose to any external party",
                     style: TextStyle(
                       fontSize: 15,
-                      color: colors.ColorPalette.background,
+                      color: colors.ColorPalette.white,
                     ),
                   )
                 ],
@@ -184,7 +184,7 @@ class _victimformState extends State<victimform> {
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(
-                  color: colors.ColorPalette.background,
+                  color: colors.ColorPalette.white,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(70),
                   ),

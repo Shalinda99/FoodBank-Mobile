@@ -51,13 +51,13 @@ class _moneyDonationState extends State<moneyDonation> {
                       const Icon(
                         Icons.arrow_back_ios,
                         size: 20,
-                        color: colors.ColorPalette.background,
+                        color: colors.ColorPalette.white,
                       ),
                       Expanded(child: Container()),
                       const Icon(
                         Icons.info_outline,
                         size: 20,
-                        color: colors.ColorPalette.background,
+                        color: colors.ColorPalette.white,
                       ),
                     ],
                   ),
@@ -68,7 +68,7 @@ class _moneyDonationState extends State<moneyDonation> {
                     "Donate Money",
                     style: TextStyle(
                       fontSize: 30,
-                      color: colors.ColorPalette.background,
+                      color: colors.ColorPalette.white,
                     ),
                   ),
                   const SizedBox(
@@ -78,7 +78,7 @@ class _moneyDonationState extends State<moneyDonation> {
                     "Help us in Donating money!!",
                     style: TextStyle(
                       fontSize: 20,
-                      color: colors.ColorPalette.background,
+                      color: colors.ColorPalette.white,
                     ),
                   )
                 ],
@@ -88,7 +88,7 @@ class _moneyDonationState extends State<moneyDonation> {
               child: Container(
                 // white bg content
                 decoration: const BoxDecoration(
-                    color: colors.ColorPalette.background,
+                    color: colors.ColorPalette.white,
                     borderRadius:
                         BorderRadius.only(topRight: Radius.circular(70))),
                 child: Column(
@@ -119,7 +119,7 @@ class _moneyDonationState extends State<moneyDonation> {
                       padding: const EdgeInsets.all(10),
                       width: MediaQuery.of(context).size.width * 0.8,
                       decoration: BoxDecoration(
-                        color: colors.ColorPalette.background,
+                        color: colors.ColorPalette.white,
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(

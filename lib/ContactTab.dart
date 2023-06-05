@@ -10,7 +10,12 @@ class ContactTab extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       decoration: const BoxDecoration(
-        color: colors.ColorPalette.darkBlue,
+        gradient: LinearGradient(
+          colors: [
+            colors.ColorPalette.darkGreen,
+            colors.ColorPalette.green,
+          ],
+        ),
         borderRadius: BorderRadius.only(
           // bottomRight: Radius.circular(70),
           bottomLeft: Radius.circular(70),
@@ -78,7 +83,7 @@ class ContactTab extends StatelessWidget {
                 MaterialButton(
                   height: 50.0,
                   minWidth: double.infinity,
-                  color: colors.ColorPalette.orange,
+                  color: colors.ColorPalette.lightGreen,
                   onPressed: () {},
                   child: const Text(
                     "SEND",
