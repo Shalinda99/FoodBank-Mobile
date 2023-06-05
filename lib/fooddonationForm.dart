@@ -12,13 +12,20 @@ class FoodDonationForm extends StatefulWidget {
 }
 
 class _FoodDonationFormState extends State<FoodDonationForm> {
+  @override
+  void initState() {
+    super.initState();
+    locationNotifier.value = selectedLocation;
+    optionNotifier.value = selectedOption;
+  }
+
   final _formKey = GlobalKey<FormState>();
 
   final List<String> locations = [
     'choose the location',
     'Galle',
     'Matara',
-    'Ambalangod'
+    'Ambalangoda'
   ];
   String selectedLocation = 'choose the location';
 
@@ -29,7 +36,10 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
   ];
   String selectedOption = 'choose a option';
 
+  TextEditingController addressController = TextEditingController();
+  ValueNotifier<String?> locationNotifier = ValueNotifier<String?>(null);
   TextEditingController _dateController = TextEditingController();
+  ValueNotifier<String?> optionNotifier = ValueNotifier<String?>(null);
   DateTime? _selectedDate; //null
 
   Widget _buildAddressField() {
@@ -46,31 +56,64 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         }
         return null;
       },
+      controller: addressController,
     );
   }
 
+  // Widget _buildLocation() {
+  //   return DropdownButtonFormField<String>(
+  //     decoration: const InputDecoration(
+  //       labelText: 'Nearest Location',
+  //     ),
+  //     value: selectedLocation,
+  //     onChanged: (String? newValue) {
+  //       setState(() {
+  //         selectedLocation = newValue!;
+  //       });
+  //     },
+  //     items: locations.map((String location) {
+  //       return DropdownMenuItem<String>(
+  //         value: location,
+  //         child: Text(location),
+  //       );
+  //     }).toList(),
+  //     validator: (value) {
+  //       if (value == null || value.isEmpty || value == 'choose the location') {
+  //         return 'Please choose a location';
+  //       }
+  //       return null;
+  //     },
+
+  //   );
+  // }
+
   Widget _buildLocation() {
-    return DropdownButtonFormField<String>(
-      decoration: const InputDecoration(
-        labelText: 'Nearest Location',
-      ),
-      value: selectedLocation,
-      onChanged: (String? newValue) {
-        setState(() {
-          selectedLocation = newValue!;
-        });
-      },
-      items: locations.map((String location) {
-        return DropdownMenuItem<String>(
-          value: location,
-          child: Text(location),
+    return ValueListenableBuilder<String?>(
+      valueListenable: locationNotifier,
+      builder: (BuildContext context, String? value, Widget? child) {
+        return DropdownButtonFormField<String>(
+          decoration: const InputDecoration(
+            labelText: 'Nearest Location',
+          ),
+          value: value,
+          onChanged: (String? newValue) {
+            locationNotifier.value = newValue;
+          },
+          items: locations.map((String location) {
+            return DropdownMenuItem<String>(
+              value: location,
+              child: Text(location),
+            );
+          }).toList(),
+          validator: (value) {
+            if (value == null ||
+                value.isEmpty ||
+                value == 'choose the location') {
+              return 'Please choose a location';
+            }
+            return null;
+          },
         );
-      }).toList(),
-      validator: (value) {
-        if (value == null || value.isEmpty || value == 'choose the location') {
-          return 'Please choose a location';
-        }
-        return null;
       },
     );
   }
@@ -108,28 +151,55 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
     );
   }
 
+  // Widget _buildSelectOption() {
+  //   return DropdownButtonFormField<String>(
+  //     // decoration: const InputDecoration(
+  //     //   labelText: 'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.' ,
+  //     // ),
+  //     value: selectedOption,
+  //     onChanged: (String? newValue) {
+  //       setState(() {
+  //         selectedOption = newValue!;
+  //       });
+  //     },
+  //     items: options.map((String option) {
+  //       return DropdownMenuItem<String>(
+  //         value: option,
+  //         child: Text(option),
+  //       );
+  //     }).toList(),
+  //     validator: (value) {
+  //       if (value == null || value.isEmpty || value == 'choose a option') {
+  //         return 'Please choose a option';
+  //       }
+  //       return null;
+  //     },
+  //   );
+  // }
+
   Widget _buildSelectOption() {
-    return DropdownButtonFormField<String>(
-      // decoration: const InputDecoration(
-      //   labelText: 'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.' ,
-      // ),
-      value: selectedOption,
-      onChanged: (String? newValue) {
-        setState(() {
-          selectedOption = newValue!;
-        });
-      },
-      items: options.map((String option) {
-        return DropdownMenuItem<String>(
-          value: option,
-          child: Text(option),
+    return ValueListenableBuilder<String?>(
+      valueListenable: optionNotifier,
+      builder: (BuildContext context, String? value, Widget? child) {
+        return DropdownButtonFormField<String>(
+          
+          value: value,
+          onChanged: (String? newValue) {
+            optionNotifier.value = newValue;
+          },
+          items: options.map((String option) {
+            return DropdownMenuItem<String>(
+              value: option,
+              child: Text(option),
+            );
+          }).toList(),
+          validator: (value) {
+            if (value == null || value.isEmpty || value == 'choose a option') {
+              return 'Please choose an option';
+            }
+            return null;
+          },
         );
-      }).toList(),
-      validator: (value) {
-        if (value == null || value.isEmpty || value == 'choose a option') {
-          return 'Please choose a option';
-        }
-        return null;
       },
     );
   }
@@ -261,6 +331,11 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                               if (_formKey.currentState!.validate()) {
                                 // Process the form data
                                 // print valid form
+
+                                print("address: ${addressController.text}");
+                                print("location: ${locationNotifier.value}");
+                                print("date: ${_dateController.text}");
+                                print("option: ${optionNotifier.value}");
                               }
                             },
                             style: ElevatedButton.styleFrom(
