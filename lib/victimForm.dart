@@ -3,27 +3,101 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/victimDetails.dart';
 import 'package:intl/intl.dart'; // for the date format
 import 'colors.dart' as colors;
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-class victimform extends StatefulWidget {
-  const victimform({super.key});
+class VictimForm extends StatefulWidget {
+  const VictimForm({Key? key}) : super(key: key);
 
   @override
-  State<victimform> createState() => _victimformState();
+  State<VictimForm> createState() => _VictimFormState();
 }
 
-class _victimformState extends State<victimform> {
+class _VictimFormState extends State<VictimForm> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController lastnameController = TextEditingController();
+  TextEditingController nicController = TextEditingController();
+  TextEditingController phonenumberController = TextEditingController();
+  TextEditingController noController = TextEditingController();
+  TextEditingController streetController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+
+  Future<void> submitForm() async {
+    if (_formKey.currentState!.validate()) {
+      // Create a map to hold the form data
+      Map<String, dynamic> formData = {
+        'Nic': nicController.text,
+        'FirstName': nameController.text,
+        'LastName': lastnameController.text,
+        'PhoneNumber': phonenumberController.text,
+        'No': noController.text,
+        'Street': streetController.text,
+        'City': cityController.text,
+        'Description': descriptionController.text,
+      };
+
+      // Convert the form data to JSON format
+      String jsonData = jsonEncode(formData);
+
+      // Set the backend API endpoint URL
+      String backendEndpoint =
+          'http://localhost:8080/Victim/saveVictimDetails'; // Replace with your backend API endpoint
+
+      // Send the form data to the backend
+      final response = await http.post(
+        Uri.parse(backendEndpoint),
+        body: jsonData,
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      if (response.statusCode == 200) {
+        // Form data successfully sent to the backend
+        ScaffoldMessenger.of(context).showSnackBar(
+          // ignore: prefer_const_constructors
+          SnackBar(
+            content: const Text('Form submitted successfully'),
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+
+        // Clear form values
+        nameController.clear();
+        lastnameController.clear();
+        nicController.clear();
+        phonenumberController.clear();
+        noController.clear();
+        streetController.clear();
+        cityController.clear();
+        descriptionController.clear();
+      } else {
+        // Error occurred while sending form data to the backend
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Error submitting form data'),
+            behavior: SnackBarBehavior.floating,
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
+    }
+  }
+
   final _formKey = GlobalKey<FormState>();
+
 
   Widget _buildFirstNameField() {
     return TextFormField(
       maxLength: 40,
+      controller: nameController,
       decoration: const InputDecoration(
-        labelText: 'FirstName',
+        labelText: 'First Name',
       ),
       validator: (value) {
-        // the input value is automatically taken
         if (value == null || value.isEmpty) {
-          return 'Please enter your first Name';
+          return 'Please enter your first name';
         }
         return null;
       },
@@ -33,13 +107,13 @@ class _victimformState extends State<victimform> {
   Widget _buildLastNameField() {
     return TextFormField(
       maxLength: 40,
+      controller: lastnameController,
       decoration: const InputDecoration(
-        labelText: 'LastName',
+        labelText: 'Last Name',
       ),
       validator: (value) {
-        // the input value is automatically taken
         if (value == null || value.isEmpty) {
-          return 'Please enter the Last Name';
+          return 'Please enter your last name';
         }
         return null;
       },
@@ -49,6 +123,7 @@ class _victimformState extends State<victimform> {
   Widget _buildNicField() {
     return TextFormField(
       maxLength: 12,
+      controller: nicController,
       decoration: const InputDecoration(
         labelText: 'NIC Number',
       ),
@@ -68,6 +143,7 @@ class _victimformState extends State<victimform> {
   Widget _buildPhoneNumberField() {
     return TextFormField(
       maxLength: 10,
+      controller: phonenumberController,
       keyboardType: TextInputType.phone,
       decoration: const InputDecoration(
         labelText: 'Phone Number',
@@ -85,16 +161,48 @@ class _victimformState extends State<victimform> {
     );
   }
 
-  Widget _buildAddressField() {
+  Widget _buildNoField() {
     return TextFormField(
-      maxLength: 40,
+      maxLength: 10,
+      controller: noController,
       decoration: const InputDecoration(
-        labelText: 'Address',
+        labelText: 'No',
       ),
       validator: (value) {
-        // the input value is automatically taken
         if (value == null || value.isEmpty) {
-          return 'Please enter the Address';
+          return 'Please enter your house number';
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget _buildStreetField() {
+    return TextFormField(
+      maxLength: 40,
+      controller: streetController,
+      decoration: const InputDecoration(
+        labelText: 'Street',
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your street name';
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget _buildCityField() {
+    return TextFormField(
+      maxLength: 40,
+      controller: cityController,
+      decoration: const InputDecoration(
+        labelText: 'City',
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your city name';
         }
         return null;
       },
@@ -104,6 +212,7 @@ class _victimformState extends State<victimform> {
   Widget _buildDescriptionField() {
     return TextFormField(
       maxLength: 40,
+      controller: descriptionController,
       decoration: const InputDecoration(
         labelText: 'Description',
       ),
@@ -117,8 +226,8 @@ class _victimformState extends State<victimform> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.green,
-              colors.ColorPalette.lightGreen,
+              colors.ColorPalette.darkOrange,
+              colors.ColorPalette.orange,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -136,25 +245,25 @@ class _victimformState extends State<victimform> {
                   Row(
                     children: [
                       GestureDetector(
-                        // capture the gesture on icon
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => victiminfo()),
+                              builder: (context) => victiminfo(),
+                            ),
                           );
                         },
                         child: const Icon(
                           Icons.arrow_back_ios,
                           size: 20,
-                          color: colors.ColorPalette.white,
+                          color: colors.ColorPalette.background,
                         ),
                       ),
                       Expanded(child: Container()),
                       const Icon(
                         Icons.info_outline,
                         size: 20,
-                        color: colors.ColorPalette.white,
+                        color: colors.ColorPalette.background,
                       ),
                     ],
                   ),
@@ -165,26 +274,26 @@ class _victimformState extends State<victimform> {
                     "Victim Information Form",
                     style: TextStyle(
                       fontSize: 30,
-                      color: colors.ColorPalette.white,
+                      color: colors.ColorPalette.background,
                     ),
                   ),
                   const SizedBox(
                     height: 30,
                   ),
                   const Text(
-                    "Your Information will not be disclose to any external party",
+                    "Your Information will not be disclosed to any external party",
                     style: TextStyle(
                       fontSize: 15,
-                      color: colors.ColorPalette.white,
+                      color: colors.ColorPalette.background,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(
-                  color: colors.ColorPalette.white,
+                  color: colors.ColorPalette.background,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(70),
                   ),
@@ -199,8 +308,7 @@ class _victimformState extends State<victimform> {
                           const SizedBox(
                             height: 20.0,
                           ),
-                          //input fields
-
+                          // Input fields
                           _buildFirstNameField(),
                           const SizedBox(
                             height: 20.0,
@@ -217,8 +325,15 @@ class _victimformState extends State<victimform> {
                           const SizedBox(
                             height: 20.0,
                           ),
-
-                          _buildAddressField(),
+                          _buildNoField(),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                           _buildStreetField(),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                           _buildCityField(),
                           const SizedBox(
                             height: 20.0,
                           ),
@@ -226,16 +341,11 @@ class _victimformState extends State<victimform> {
                           const SizedBox(
                             height: 20.0,
                           ),
+  ElevatedButton(
+      onPressed: submitForm,
+      child: const Text('Submit'),
+    ),
 
-                          ElevatedButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                // Process the form data
-                                // print valid form
-                              }
-                            },
-                            child: const Text('Submit'),
-                          ),
                         ],
                       ),
                     ),
