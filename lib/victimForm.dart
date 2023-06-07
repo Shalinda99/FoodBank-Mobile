@@ -22,6 +22,7 @@ class _VictimFormState extends State<VictimForm> {
   TextEditingController streetController = TextEditingController();
   TextEditingController cityController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+
   Future<void> submitForm() async {
     if (_formKey.currentState!.validate()) {
       // Create a map to hold the form data
@@ -40,7 +41,8 @@ class _VictimFormState extends State<VictimForm> {
       String jsonData = jsonEncode(formData);
 
       // Set the backend API endpoint URL
-      String backendEndpoint = 'http://localhost:8080/Victim/saveVictimDetails'; // Replace with your backend API endpoint
+      String backendEndpoint =
+          'http://localhost:8080/Victim/saveVictimDetails'; 
 
       // Send the form data to the backend
       final response = await http.post(
@@ -51,15 +53,40 @@ class _VictimFormState extends State<VictimForm> {
 
       if (response.statusCode == 200) {
         // Form data successfully sent to the backend
-        print('Form data submitted successfully');
+        ScaffoldMessenger.of(context).showSnackBar(
+          // ignore: prefer_const_constructors
+          SnackBar(
+            content: const Text('Form submitted successfully'),
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+
+        // Clear form values
+        nameController.clear();
+        lastnameController.clear();
+        nicController.clear();
+        phonenumberController.clear();
+        noController.clear();
+        streetController.clear();
+        cityController.clear();
+        descriptionController.clear();
       } else {
         // Error occurred while sending form data to the backend
-        print('Error submitting form data');
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Error submitting form data'),
+            behavior: SnackBarBehavior.floating,
+            duration: Duration(seconds: 2),
+          ),
+        );
       }
     }
   }
 
   final _formKey = GlobalKey<FormState>();
+
 
   Widget _buildFirstNameField() {
     return TextFormField(
