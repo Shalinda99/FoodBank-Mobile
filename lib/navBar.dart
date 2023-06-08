@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ContactTab.dart';
+import 'package:flutter_application_1/HomeTab.dart';
 import 'package:flutter_application_1/Projects.dart';
 import 'package:flutter_application_1/fooddonation.dart';
 import 'package:flutter_application_1/moneyDonation.dart';
@@ -34,33 +36,20 @@ class NavBar extends StatelessWidget {
             )),
         ListTile(
           leading: const Icon(Icons.home_filled),
-          title: const Text('About Us'),
+          title: const Text('Home'),
           // ignore: avoid_returning_null_for_void
           onTap: () {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Projects(),
+                  builder: (context) => HomeTab(),
                 ));
             // Add your code for when this image is tapped.
           },
         ),
         ListTile(
           leading: const Icon(Icons.question_mark_outlined),
-          title: const Text('Why Food Bank?'),
-          // ignore: avoid_returning_null_for_void
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Projects(),
-                ));
-            // Add your code for when this image is tapped.
-          },
-        ),
-        ListTile(
-          leading: const Icon(Icons.notes_outlined),
-          title: const Text('Projects'),
+          title: const Text('Contact Us'),
           // ignore: avoid_returning_null_for_void
           onTap: () {
             Navigator.push(
@@ -96,7 +85,20 @@ class NavBar extends StatelessWidget {
                 ));
             // Add your code for when this image is tapped.
           },
-        )
+        ),
+        ListTile(
+          leading: const Icon(Icons.notes_outlined),
+          title: const Text('Delivery'),
+          // ignore: avoid_returning_null_for_void
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Projects(),
+                ));
+            // Add your code for when this image is tapped.
+          },
+        ),
       ],
     ));
   }
