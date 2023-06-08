@@ -5,20 +5,20 @@ import 'package:flutter_application_1/victimForm.dart';
 import 'colors.dart' as colors;
 import 'package:flutter_application_1/fooddonationForm.dart';
 
-class moneyDonation extends StatefulWidget {
-  const moneyDonation({super.key});
+class selectAmount extends StatefulWidget {
+  const selectAmount({super.key});
 
   @override
-  State<moneyDonation> createState() => _moneyDonationState();
+  State<selectAmount> createState() => _selectAmountState();
 }
 
 // ignore: camel_case_types
-class _moneyDonationState extends State<moneyDonation> {
+class _selectAmountState extends State<selectAmount> {
   void _navigateToNextWidget() {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) =>
-            const moneyDonation(), // the widget you want to navigate to
+            const selectAmount(), // the widget you want to navigate to
       ),
     );
   }
@@ -96,66 +96,16 @@ class _moneyDonationState extends State<moneyDonation> {
                     const SizedBox(
                       height: 70,
                     ),
-                    Row(
-                      children: const [
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Flexible(
-                          child: Text(
-                            "You have not lived today until doing something for someone who can never repay you",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
                     const SizedBox(
                       height: 50,
                     ),
                     Container(
                       padding: const EdgeInsets.all(10),
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         color: colors.ColorPalette.white,
                         borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
                       ),
-                      child: const Text(
-                        'Join us in providing nutritious meals to people facing malnutrition by making a monetary donation.',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    const Text(
-                      'Click here to donate money',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    ElevatedButton(
-                      onPressed: _navigateToNextWidget,
-                      style: ElevatedButton.styleFrom(
-                        primary: colors.ColorPalette
-                            .darkGreen, // set the background color of the button
-                      ), // call function to navigate to next widget
-                      child: const Text("Donate Now"),
                     ),
                   ],
                 ),

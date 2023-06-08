@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/fooddonationForm.dart';
+import 'package:flutter_application_1/selectAmount.dart';
 import 'package:flutter_application_1/victimForm.dart';
 import 'colors.dart' as colors;
 import 'package:flutter_application_1/fooddonationForm.dart';
@@ -146,16 +147,31 @@ class _moneyDonationState extends State<moneyDonation> {
                         fontSize: 16,
                       ),
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    ElevatedButton(
-                      onPressed: _navigateToNextWidget,
-                      style: ElevatedButton.styleFrom(
-                        primary: colors.ColorPalette
-                            .darkGreen, // set the background color of the button
-                      ), // call function to navigate to next widget
-                      child: const Text("Donate Now"),
+                    SizedBox(height: 20),
+                    Material(
+                      color: colors.ColorPalette.darkGreen,
+                      borderRadius: BorderRadius.circular(10),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => selectAmount(),
+                              ));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 50),
+                          child: Text(
+                            "Donate Now",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 255, 255, 255)
+                                  .withOpacity(0.9),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
