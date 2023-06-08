@@ -188,7 +188,7 @@ class _HomeTabState extends State<HomeTab> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => FoodDonation(),
+                                  builder: (context) => moneyDonation(),
                                 ),
                               );
                             },
@@ -285,7 +285,7 @@ class _HomeTabState extends State<HomeTab> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => FoodDonation(),
+                                  builder: (context) => victiminfo(),
                                 ),
                               );
                             },
