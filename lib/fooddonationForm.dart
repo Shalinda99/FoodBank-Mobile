@@ -15,7 +15,12 @@ class FoodDonationForm extends StatefulWidget {
 class _FoodDonationFormState extends State<FoodDonationForm> {
   final _formKey = GlobalKey<FormState>();
 
-  final List<String> locations = ['choose the location','Galle', 'Matara', 'Ambalangod'];
+  final List<String> locations = [
+    'choose the location',
+    'Galle',
+    'Matara',
+    'Ambalangod'
+  ];
   String selectedLocation = 'choose the location';
 
   final List<String> options= ['choose a option','I will come and donate you', 'You have to collect my donation'];
@@ -62,7 +67,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         );
       }).toList(),
       validator: (value) {
-        if (value == null || value.isEmpty || value=='choose the location') {
+        if (value == null || value.isEmpty || value == 'choose the location') {
           return 'Please choose a location';
         }
         return null;
@@ -102,8 +107,8 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
       readOnly: true,
     );
   }
-  
-   Widget _buildSelectOption() {
+
+  Widget _buildSelectOption() {
     return DropdownButtonFormField<String>(
       // decoration: const InputDecoration(
       //   labelText: 'To continue with the food donation you have two options, either you can bring them to us or we can come and collect them. please choose a option.' ,
@@ -121,7 +126,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         );
       }).toList(),
       validator: (value) {
-        if (value == null || value.isEmpty || value=='choose a option') {
+        if (value == null || value.isEmpty || value == 'choose a option') {
           return 'Please choose a option';
         }
         return null;
