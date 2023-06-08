@@ -1,27 +1,20 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/fooddonationForm.dart';
-import 'package:flutter_application_1/victimForm.dart';
 import 'colors.dart' as colors;
-import 'package:flutter_application_1/fooddonationForm.dart';
 
 class selectAmount extends StatefulWidget {
-  const selectAmount({super.key});
+  const selectAmount({Key? key}) : super(key: key);
 
   @override
-  State<selectAmount> createState() => _selectAmountState();
+  _selectAmountState createState() => _selectAmountState();
 }
 
-// ignore: camel_case_types
 class _selectAmountState extends State<selectAmount> {
-  void _navigateToNextWidget() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) =>
-            const selectAmount(), // the widget you want to navigate to
-      ),
-    );
-  }
+  Color buttonColor1 = Color.fromARGB(255, 208, 207, 206);
+  Color buttonColor2 = Color.fromARGB(255, 208, 207, 206);
+  Color buttonColor3 = Color.fromARGB(255, 208, 207, 206);
+  Color buttonColor4 = Color.fromARGB(255, 208, 207, 206);
+  Color buttonColor5 = Color.fromARGB(255, 208, 207, 206);
+  Color buttonColor = colors.ColorPalette.green;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +34,8 @@ class _selectAmountState extends State<selectAmount> {
           children: [
             Container(
               padding: const EdgeInsets.only(top: 70, left: 30, right: 30),
-              width: MediaQuery.of(context).size.width, // acc to device size
-              height: 250,
+              width: MediaQuery.of(context).size.width,
+              height: 150,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -62,52 +55,182 @@ class _selectAmountState extends State<selectAmount> {
                     ],
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   const Text(
-                    "Donate Money",
+                    "           Donate Now",
                     style: TextStyle(
                       fontSize: 30,
                       color: colors.ColorPalette.white,
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Text(
-                    "Help us in Donating money!!",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: colors.ColorPalette.white,
-                    ),
-                  )
                 ],
               ),
             ),
             Expanded(
-              child: Container(
-                // white bg content
-                decoration: const BoxDecoration(
+              child: SizedBox(
+                height: 200,
+                width: 500,
+                child: Container(
+                  decoration: BoxDecoration(
                     color: colors.ColorPalette.white,
-                    borderRadius:
-                        BorderRadius.only(topRight: Radius.circular(70))),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 70,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(70),
+                      topLeft: Radius.circular(70),
                     ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: colors.ColorPalette.white,
-                        borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 40.0),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                buttonColor1 = Colors.orange;
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: buttonColor1,
+                              minimumSize: Size(350.0,
+                                  40.0), // Adjust the width and height as needed
+                            ),
+                            child: Text(
+                              "Rs 100",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                            )),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.0),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                buttonColor2 = Colors.orange;
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: buttonColor2,
+                              minimumSize: Size(350.0,
+                                  40.0), // Adjust the width and height as needed
+                            ),
+                            child: Text(
+                              "Rs 100",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.0),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                buttonColor3 = Colors.orange;
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: buttonColor3,
+                              minimumSize: Size(350.0,
+                                  40.0), // Adjust the width and height as needed
+                            ),
+                            child: Text(
+                              "Rs 100",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.0),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                buttonColor4 = Colors.orange;
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: buttonColor4,
+                              minimumSize: Size(350.0,
+                                  40.0), // Adjust the width and height as needed
+                            ),
+                            child: Text(
+                              "Rs 100",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.0),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                buttonColor5 = Colors.orange;
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: buttonColor5,
+                              minimumSize: Size(350.0,
+                                  40.0), // Adjust the width and height as needed
+                            ),
+                            child: Text(
+                              "Rs 100",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                            )),
+                      ),
+
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 20.0, horizontal: 40.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Enter Amount',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10.0),
+                            TextField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Enter your donation amount',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.0),
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              primary: buttonColor,
+                              minimumSize: Size(350.0,
+                                  40.0), // Adjust the width and height as needed
+                            ),
+                            child: Text(
+                              "Select Payment Method",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                            )),
+                      ),
+
+                      // Add more buttons as needed
+                    ],
+                  ),
                 ),
               ),
             )
