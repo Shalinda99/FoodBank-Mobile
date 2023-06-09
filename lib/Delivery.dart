@@ -1,0 +1,185 @@
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_application_1/fooddonationForm.dart';
+// import 'package:flutter_application_1/selectAmount.dart';
+// import 'package:flutter_application_1/victimForm.dart';
+// import 'colors.dart' as colors;
+// import 'package:flutter_application_1/fooddonationForm.dart';
+
+// class Delivery extends StatefulWidget {
+//   const Delivery ({super.key});
+
+//   @override
+//   State<Delivery > createState() => _DeliveryState();
+// }
+
+// // ignore: camel_case_types
+// class _Delivery State extends State<Delivery > {
+//   void _navigateToNextWidget() {
+//     Navigator.of(context).push(
+//       MaterialPageRoute(
+//         builder: (context) =>
+//             const Delivery (), // the widget you want to navigate to
+//       ),
+//     );
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Container(
+//         decoration: const BoxDecoration(
+//           gradient: LinearGradient(
+//             colors: [
+//               colors.ColorPalette.green,
+//               colors.ColorPalette.lightGreen,
+//             ],
+//             begin: FractionalOffset(0.0, 0.4),
+//             end: Alignment.topRight,
+//           ),
+//         ),
+//         child: Column(
+//           children: [
+//             Container(
+//               padding: const EdgeInsets.only(top: 70, left: 30, right: 30),
+//               width: MediaQuery.of(context).size.width, // acc to device size
+//               height: 250,
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Row(
+//                     children: [
+//                       const Icon(
+//                         Icons.arrow_back_ios,
+//                         size: 20,
+//                         color: colors.ColorPalette.white,
+//                       ),
+//                       Expanded(child: Container()),
+//                       const Icon(
+//                         Icons.info_outline,
+//                         size: 20,
+//                         color: colors.ColorPalette.white,
+//                       ),
+//                     ],
+//                   ),
+//                   const SizedBox(
+//                     height: 30,
+//                   ),
+//                   const Text(
+//                     "Donate Money",
+//                     style: TextStyle(
+//                       fontSize: 30,
+//                       color: colors.ColorPalette.white,
+//                     ),
+//                   ),
+//                   const SizedBox(
+//                     height: 30,
+//                   ),
+//                   const Text(
+//                     "Help us in Donating money!!",
+//                     style: TextStyle(
+//                       fontSize: 20,
+//                       color: colors.ColorPalette.white,
+//                     ),
+//                   )
+//                 ],
+//               ),
+//             ),
+//             Expanded(
+//               child: Container(
+//                 // white bg content
+//                 decoration: const BoxDecoration(
+//                     color: colors.ColorPalette.white,
+//                     borderRadius:
+//                         BorderRadius.only(topRight: Radius.circular(70))),
+//                 child: Column(
+//                   children: [
+//                     const SizedBox(
+//                       height: 70,
+//                     ),
+//                     Row(
+//                       children: const [
+//                         SizedBox(
+//                           width: 20,
+//                         ),
+//                         Flexible(
+//                           child: Text(
+//                             "You have not lived today until doing something for someone who can never repay you",
+//                             style: TextStyle(
+//                               fontSize: 20,
+//                               fontWeight: FontWeight.bold,
+//                             ),
+//                           ),
+//                         )
+//                       ],
+//                     ),
+//                     const SizedBox(
+//                       height: 50,
+//                     ),
+//                     Container(
+//                       padding: const EdgeInsets.all(10),
+//                       width: MediaQuery.of(context).size.width * 0.8,
+//                       decoration: BoxDecoration(
+//                         color: colors.ColorPalette.white,
+//                         borderRadius: BorderRadius.circular(10),
+//                         boxShadow: [
+//                           BoxShadow(
+//                             color: Colors.grey.withOpacity(0.5),
+//                             spreadRadius: 5,
+//                             blurRadius: 7,
+//                             offset: const Offset(0, 3),
+//                           ),
+//                         ],
+//                       ),
+//                       child: const Text(
+//                         'Join us in providing nutritious meals to people facing malnutrition by making a monetary donation.',
+//                         style: TextStyle(
+//                           fontSize: 15,
+//                         ),
+//                       ),
+//                     ),
+//                     const SizedBox(
+//                       height: 40,
+//                     ),
+//                     const Text(
+//                       'Click here to donate money',
+//                       style: TextStyle(
+//                         fontSize: 16,
+//                       ),
+//                     ),
+//                     SizedBox(height: 20),
+//                     Material(
+//                       color: colors.ColorPalette.darkGreen,
+//                       borderRadius: BorderRadius.circular(10),
+//                       child: InkWell(
+//                         onTap: () {
+//                           Navigator.push(
+//                               context,
+//                               MaterialPageRoute(
+//                                 builder: (context) => selectAmount(),
+//                               ));
+//                         },
+//                         child: Container(
+//                           padding: EdgeInsets.symmetric(
+//                               vertical: 10, horizontal: 50),
+//                           child: Text(
+//                             "Donate Now",
+//                             style: TextStyle(
+//                               fontSize: 15,
+//                               color: Color.fromARGB(255, 255, 255, 255)
+//                                   .withOpacity(0.9),
+//                             ),
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

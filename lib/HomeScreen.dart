@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Home1.dart';
+import 'package:flutter_application_1/Login.dart';
 import 'colors.dart' as colors;
 
 class HomeScreen extends StatelessWidget {
@@ -104,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Home1(),
+                                      builder: (context) => MyLogin(),
                                     ),
                                   );
                                 },
