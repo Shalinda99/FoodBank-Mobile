@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // for the date format
 import 'colors.dart' as colors;
+import 'dart:convert';
 import 'fooddonation.dart';
+import 'package:http/http.dart' as http;
 
 class FoodDonationForm extends StatefulWidget {
   const FoodDonationForm({Key? key}) : super(key: key);
@@ -10,6 +12,7 @@ class FoodDonationForm extends StatefulWidget {
   @override
   State<FoodDonationForm> createState() => _FoodDonationFormState();
 }
+final _formKey = GlobalKey<FormState>();
 
 class _FoodDonationFormState extends State<FoodDonationForm> {
   @override
@@ -19,7 +22,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
     optionNotifier.value = selectedOption;
   }
 
-  final _formKey = GlobalKey<FormState>();
+  //final _formKey = GlobalKey<FormState>();
 
   final List<String> locations = [
     'choose the location',
@@ -41,6 +44,39 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
   TextEditingController _dateController = TextEditingController();
   ValueNotifier<String?> optionNotifier = ValueNotifier<String?>(null);
   DateTime? _selectedDate; //null
+
+
+  Future<void> submitForm() async {
+    if (_formKey.currentState!.validate()) {
+      // Create a map to hold the form data
+      Map<String, dynamic> formData = {
+        'Address': addressController.text,
+        'Location': locationNotifier.value,
+        'Date': _dateController.text,
+        'SelectOption': optionNotifier.value,
+        
+      };
+
+      // Convert the form data to JSON format
+      String jsonData = jsonEncode(formData);
+
+      // Set the backend API endpoint URL
+      String backendEndpoint =
+          'http://localhost:8080/FoodDonate/saveDonation'; // Replace with your backend API endpoint
+
+      // Send the form data to the backend
+      final response = await http.post(
+        Uri.parse(backendEndpoint),
+        body: jsonData,
+        headers: {'Content-Type': 'application/json'},
+      );
+
+ 
+    }
+  }
+
+   final _formKey = GlobalKey<FormState>();
+
 
   Widget _buildAddressField() {
     return TextFormField(
@@ -129,6 +165,7 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         }
         return null;
       },
+      
       onTap: () async {
         // Show the date picker and get the selected date
         final selectedDate = await showDatePicker(
@@ -204,11 +241,11 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
     );
   }
 
-  @override
-  void dispose() {
-    _dateController.dispose();
-    super.dispose();
-  } // optional used for date field
+  // @override
+  // void dispose() {
+  //   _dateController.dispose();
+  //   super.dispose();
+  // } // optional used for date field
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -327,23 +364,26 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                           ),
 
                           ElevatedButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                // Process the form data
-                                // print valid form
+  onPressed: () {
+    if (_formKey.currentState!.validate()) {
+      // Process the form data
+      // print valid form
+      print("address: ${addressController.text}");
+      print("location: ${locationNotifier.value}");
+      print("date: ${_dateController.text}");
+      print("option: ${optionNotifier.value}");
 
-                                print("address: ${addressController.text}");
-                                print("location: ${locationNotifier.value}");
-                                print("date: ${_dateController.text}");
-                                print("option: ${optionNotifier.value}");
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: colors.ColorPalette
-                                  .darkGreen, // set the background color of the button
-                            ),
-                            child: const Text('Submit'),
-                          ),
+      submitForm(); // Move the function call here
+    }
+  },
+  child: Text('Submit'),
+),
+
+                            
+                            
+                           
+                            
+                          
                         ],
                       ),
                     ),

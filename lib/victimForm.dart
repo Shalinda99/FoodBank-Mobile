@@ -12,6 +12,7 @@ class VictimForm extends StatefulWidget {
   @override
   State<VictimForm> createState() => _VictimFormState();
 }
+final _formKey = GlobalKey<FormState>();
 
 class _VictimFormState extends State<VictimForm> {
   TextEditingController nameController = TextEditingController();
@@ -35,6 +36,8 @@ class _VictimFormState extends State<VictimForm> {
         'Street': streetController.text,
         'City': cityController.text,
         'Description': descriptionController.text,
+
+
       };
 
       // Convert the form data to JSON format
@@ -51,37 +54,7 @@ class _VictimFormState extends State<VictimForm> {
         headers: {'Content-Type': 'application/json'},
       );
 
-      if (response.statusCode == 200) {
-        // Form data successfully sent to the backend
-        ScaffoldMessenger.of(context).showSnackBar(
-          // ignore: prefer_const_constructors
-          SnackBar(
-            content: const Text('Form submitted successfully'),
-            behavior: SnackBarBehavior.floating,
-            duration: const Duration(seconds: 2),
-          ),
-        );
-
-        // Clear form values
-        nameController.clear();
-        lastnameController.clear();
-        nicController.clear();
-        phonenumberController.clear();
-        noController.clear();
-        streetController.clear();
-        cityController.clear();
-        descriptionController.clear();
-      } else {
-        // Error occurred while sending form data to the backend
-        // ignore: use_build_context_synchronously
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Error submitting form data'),
-            behavior: SnackBarBehavior.floating,
-            duration: Duration(seconds: 2),
-          ),
-        );
-      }
+   
     }
   }
 
@@ -277,7 +250,7 @@ class _VictimFormState extends State<VictimForm> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   const Text(
                     "Your Information will not be disclosed to any external party",
@@ -340,10 +313,26 @@ class _VictimFormState extends State<VictimForm> {
                           const SizedBox(
                             height: 20.0,
                           ),
-                          ElevatedButton(
-                            onPressed: submitForm,
-                            child: const Text('Submit'),
-                          ),
+  ElevatedButton(
+      onPressed: () {
+    if (_formKey.currentState!.validate()) {
+      // Process the form data
+      // print valid form
+      print("FirstName: ${nameController.text}");
+       print("LastName: ${lastnameController.text}");
+       print("Nic: ${nicController.text}");
+        print("PhoneNumber: ${phonenumberController.text}");
+         print("No: ${noController.text}");
+          print("Street: ${streetController.text}");
+           print("City: ${cityController.text}");
+            print("Description: ${descriptionController.text}");
+
+      submitForm(); 
+    }
+  },
+  child: Text('Submit'),
+    ),
+
                         ],
                       ),
                     ),
