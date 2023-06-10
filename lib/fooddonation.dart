@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Home1.dart';
 import 'package:flutter_application_1/fooddonationForm.dart';
 import 'colors.dart' as colors;
 import 'package:flutter_application_1/fooddonationForm.dart'; // import the widget you want to navigate to
@@ -46,10 +47,19 @@ class _FoodDonationState extends State<FoodDonation> {
                 children: [
                   Row(
                     children: [
-                      const Icon(
-                        Icons.arrow_back_ios,
-                        size: 20,
-                        color: colors.ColorPalette.white,
+                      GestureDetector(
+                        // capture the gesture on icon
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home1()),
+                          );
+                        },
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          size: 20,
+                          color: colors.ColorPalette.white,
+                        ),
                       ),
                       Expanded(child: Container()),
                       const Icon(

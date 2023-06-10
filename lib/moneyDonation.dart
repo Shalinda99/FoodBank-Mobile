@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Home1.dart';
 import 'package:flutter_application_1/fooddonationForm.dart';
 import 'package:flutter_application_1/selectAmount.dart';
 import 'package:flutter_application_1/victimForm.dart';
@@ -49,10 +50,19 @@ class _moneyDonationState extends State<moneyDonation> {
                 children: [
                   Row(
                     children: [
-                      const Icon(
-                        Icons.arrow_back_ios,
-                        size: 20,
-                        color: colors.ColorPalette.white,
+                      GestureDetector(
+                        // capture the gesture on icon
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home1()),
+                          );
+                        },
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          size: 20,
+                          color: colors.ColorPalette.white,
+                        ),
                       ),
                       Expanded(child: Container()),
                       const Icon(

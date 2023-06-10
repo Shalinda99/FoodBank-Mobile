@@ -87,7 +87,6 @@ class _VictimFormState extends State<VictimForm> {
 
   final _formKey = GlobalKey<FormState>();
 
-
   Widget _buildFirstNameField() {
     return TextFormField(
       maxLength: 40,
@@ -226,8 +225,8 @@ class _VictimFormState extends State<VictimForm> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              colors.ColorPalette.darkOrange,
-              colors.ColorPalette.orange,
+              colors.ColorPalette.green,
+              colors.ColorPalette.lightGreen,
             ],
             begin: FractionalOffset(0.0, 0.4),
             end: Alignment.topRight,
@@ -329,11 +328,11 @@ class _VictimFormState extends State<VictimForm> {
                           const SizedBox(
                             height: 20.0,
                           ),
-                           _buildStreetField(),
+                          _buildStreetField(),
                           const SizedBox(
                             height: 20.0,
                           ),
-                           _buildCityField(),
+                          _buildCityField(),
                           const SizedBox(
                             height: 20.0,
                           ),
@@ -341,11 +340,10 @@ class _VictimFormState extends State<VictimForm> {
                           const SizedBox(
                             height: 20.0,
                           ),
-  ElevatedButton(
-      onPressed: submitForm,
-      child: const Text('Submit'),
-    ),
-
+                          ElevatedButton(
+                            onPressed: submitForm,
+                            child: const Text('Submit'),
+                          ),
                         ],
                       ),
                     ),

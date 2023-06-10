@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/moneyDonation.dart';
 import 'colors.dart' as colors;
 
 class selectAmount extends StatefulWidget {
@@ -41,10 +42,20 @@ class _selectAmountState extends State<selectAmount> {
                 children: [
                   Row(
                     children: [
-                      const Icon(
-                        Icons.arrow_back_ios,
-                        size: 20,
-                        color: colors.ColorPalette.white,
+                      GestureDetector(
+                        // capture the gesture on icon
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => moneyDonation()),
+                          );
+                        },
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          size: 20,
+                          color: colors.ColorPalette.white,
+                        ),
                       ),
                       Expanded(child: Container()),
                       const Icon(
@@ -86,7 +97,7 @@ class _selectAmountState extends State<selectAmount> {
                         child: ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                buttonColor1 = Colors.orange;
+                                buttonColor1 = colors.ColorPalette.darkGreen;
                               });
                             },
                             style: ElevatedButton.styleFrom(
@@ -107,7 +118,7 @@ class _selectAmountState extends State<selectAmount> {
                         child: ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                buttonColor2 = Colors.orange;
+                                buttonColor2 = colors.ColorPalette.darkGreen;
                               });
                             },
                             style: ElevatedButton.styleFrom(
@@ -128,7 +139,7 @@ class _selectAmountState extends State<selectAmount> {
                         child: ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                buttonColor3 = Colors.orange;
+                                buttonColor3 = colors.ColorPalette.darkGreen;
                               });
                             },
                             style: ElevatedButton.styleFrom(
@@ -149,7 +160,7 @@ class _selectAmountState extends State<selectAmount> {
                         child: ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                buttonColor4 = Colors.orange;
+                                buttonColor4 = colors.ColorPalette.darkGreen;
                               });
                             },
                             style: ElevatedButton.styleFrom(
@@ -170,7 +181,7 @@ class _selectAmountState extends State<selectAmount> {
                         child: ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                buttonColor5 = Colors.orange;
+                                buttonColor5 = colors.ColorPalette.darkGreen;
                               });
                             },
                             style: ElevatedButton.styleFrom(

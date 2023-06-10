@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Projects.dart';
 import 'package:flutter_application_1/navBar.dart';
 import 'colors.dart' as colors;
 import 'package:flutter_application_1/HomeTab.dart';
-import 'package:flutter_application_1/ContactTab.dart';
 import 'package:flutter_application_1/SettingsTab.dart';
 
 class Home1 extends StatefulWidget {
@@ -16,8 +16,9 @@ class _Home1State extends State<Home1> {
   int _selectedIndex = 0;
   final List<Widget> _tabs = [
     HomeTab(),
-    ContactTab(),
-    SettingsTab(),
+    
+    // SettingsTab(),
+    Projects()
   ];
 
   @override
@@ -65,14 +66,14 @@ class _Home1State extends State<Home1> {
             label: 'Contact Us',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings,
+            icon: Icon(Icons.notes_outlined,
                 color: Color.fromARGB(
                     255, 255, 255, 255)), // set the color of the icon
-            label: 'Settings',
+            label: 'Projects',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: colors.ColorPalette.lightGreen,
+        selectedItemColor: colors.ColorPalette.white,
         onTap: (index) {
           setState(() {
             _selectedIndex = index;

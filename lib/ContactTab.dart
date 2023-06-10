@@ -12,15 +12,15 @@ class ContactTab extends StatelessWidget {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            colors.ColorPalette.darkGreen,
             colors.ColorPalette.green,
+            colors.ColorPalette.lightGreen,
           ],
         ),
         borderRadius: BorderRadius.only(
-          // bottomRight: Radius.circular(70),
           bottomLeft: Radius.circular(70),
-          // topLeft: Radius.circular(70),
           topRight: Radius.circular(70),
+          topLeft: Radius.circular(70),
+          bottomRight: Radius.circular(70),
         ),
       ),
       child: Column(
@@ -31,14 +31,14 @@ class ContactTab extends StatelessWidget {
             style: TextStyle(
               fontSize: 32.0,
               fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
           ),
           const Text(
             "    We value your feedback and are always looking\n   for ways to improve our products and services\n",
             style: TextStyle(
               fontSize: 18.0,
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
           ),
           Padding(

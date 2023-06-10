@@ -14,43 +14,6 @@ class HomeScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
-                // Container(
-                //   width: MediaQuery.of(context).size.width,
-                //   height: MediaQuery.of(context).size.height / 2.75,
-                //   decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.only(
-                //       bottomRight: Radius.circular(100),
-                //     ),
-                //     image: DecorationImage(
-                //       image: AssetImage("assets/img3.jpg"),
-                //       fit: BoxFit.cover,
-                //     ),
-                //   ),
-                //   child: Align(
-                //     alignment: Alignment.bottomLeft,
-                //     child: Column(
-                //       crossAxisAlignment: CrossAxisAlignment.start,
-                //       mainAxisSize: MainAxisSize.min,
-                //       children: const [
-                //         Text(
-                //           "Feed The Need",
-                //           style: TextStyle(
-                //             fontSize: 34,
-                //             color: Color.fromARGB(255, 248, 246, 246),
-                //           ),
-                //         ),
-                //         SizedBox(height: 4), // add some space between the lines
-                //         Text(
-                //           "Together, we can make a better\n tomorrow a reality",
-                //           style: TextStyle(
-                //             fontSize: 22,
-                //             color: Color.fromARGB(255, 255, 255, 255),
-                //           ),
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
