@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ContactTab.dart';
 import 'package:flutter_application_1/HomeTab.dart';
 import 'package:flutter_application_1/Projects.dart';
 import 'package:flutter_application_1/fooddonation.dart';
 import 'package:flutter_application_1/moneyDonation.dart';
+import 'package:flutter_application_1/victimDetails.dart';
 import 'colors.dart' as colors;
 
 class NavBar extends StatelessWidget {
@@ -47,14 +49,14 @@ class NavBar extends StatelessWidget {
           },
         ),
         ListTile(
-          leading: const Icon(Icons.question_mark_outlined),
-          title: const Text('Contact Us'),
+          leading: const Icon(Icons.person_2_rounded),
+          title: const Text('Propose Victims'),
           // ignore: avoid_returning_null_for_void
           onTap: () {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Projects(),
+                  builder: (context) => victiminfo(),
                 ));
             // Add your code for when this image is tapped.
           },
@@ -81,19 +83,6 @@ class NavBar extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => moneyDonation(),
-                ));
-            // Add your code for when this image is tapped.
-          },
-        ),
-        ListTile(
-          leading: const Icon(Icons.notes_outlined),
-          title: const Text('Delivery'),
-          // ignore: avoid_returning_null_for_void
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Projects(),
                 ));
             // Add your code for when this image is tapped.
           },

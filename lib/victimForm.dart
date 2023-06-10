@@ -12,6 +12,7 @@ class VictimForm extends StatefulWidget {
   @override
   State<VictimForm> createState() => _VictimFormState();
 }
+
 final _formKey = GlobalKey<FormState>();
 
 class _VictimFormState extends State<VictimForm> {
@@ -36,8 +37,6 @@ class _VictimFormState extends State<VictimForm> {
         'Street': streetController.text,
         'City': cityController.text,
         'Description': descriptionController.text,
-
-
       };
 
       // Convert the form data to JSON format
@@ -53,8 +52,6 @@ class _VictimFormState extends State<VictimForm> {
         body: jsonData,
         headers: {'Content-Type': 'application/json'},
       );
-
-   
     }
   }
 
@@ -313,26 +310,31 @@ class _VictimFormState extends State<VictimForm> {
                           const SizedBox(
                             height: 20.0,
                           ),
-  ElevatedButton(
-      onPressed: () {
-    if (_formKey.currentState!.validate()) {
-      // Process the form data
-      // print valid form
-      print("FirstName: ${nameController.text}");
-       print("LastName: ${lastnameController.text}");
-       print("Nic: ${nicController.text}");
-        print("PhoneNumber: ${phonenumberController.text}");
-         print("No: ${noController.text}");
-          print("Street: ${streetController.text}");
-           print("City: ${cityController.text}");
-            print("Description: ${descriptionController.text}");
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: colors.ColorPalette
+                                  .darkGreen, // set the background color of the button
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Process the form data
+                                // print valid form
+                                print("FirstName: ${nameController.text}");
+                                print("LastName: ${lastnameController.text}");
+                                print("Nic: ${nicController.text}");
+                                print(
+                                    "PhoneNumber: ${phonenumberController.text}");
+                                print("No: ${noController.text}");
+                                print("Street: ${streetController.text}");
+                                print("City: ${cityController.text}");
+                                print(
+                                    "Description: ${descriptionController.text}");
 
-      submitForm(); 
-    }
-  },
-  child: Text('Submit'),
-    ),
-
+                                submitForm();
+                              }
+                            },
+                            child: Text('Submit'),
+                          ),
                         ],
                       ),
                     ),

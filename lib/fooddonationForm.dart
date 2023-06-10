@@ -12,6 +12,7 @@ class FoodDonationForm extends StatefulWidget {
   @override
   State<FoodDonationForm> createState() => _FoodDonationFormState();
 }
+
 final _formKey = GlobalKey<FormState>();
 
 class _FoodDonationFormState extends State<FoodDonationForm> {
@@ -45,7 +46,6 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
   ValueNotifier<String?> optionNotifier = ValueNotifier<String?>(null);
   DateTime? _selectedDate; //null
 
-
   Future<void> submitForm() async {
     if (_formKey.currentState!.validate()) {
       // Create a map to hold the form data
@@ -54,7 +54,6 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         'Location': locationNotifier.value,
         'Date': _dateController.text,
         'SelectOption': optionNotifier.value,
-        
       };
 
       // Convert the form data to JSON format
@@ -70,13 +69,10 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         body: jsonData,
         headers: {'Content-Type': 'application/json'},
       );
-
- 
     }
   }
 
-   final _formKey = GlobalKey<FormState>();
-
+  final _formKey = GlobalKey<FormState>();
 
   Widget _buildAddressField() {
     return TextFormField(
@@ -165,7 +161,6 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
         }
         return null;
       },
-      
       onTap: () async {
         // Show the date picker and get the selected date
         final selectedDate = await showDatePicker(
@@ -219,7 +214,6 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
       valueListenable: optionNotifier,
       builder: (BuildContext context, String? value, Widget? child) {
         return DropdownButtonFormField<String>(
-          
           value: value,
           onChanged: (String? newValue) {
             optionNotifier.value = newValue;
@@ -364,26 +358,24 @@ class _FoodDonationFormState extends State<FoodDonationForm> {
                           ),
 
                           ElevatedButton(
-  onPressed: () {
-    if (_formKey.currentState!.validate()) {
-      // Process the form data
-      // print valid form
-      print("address: ${addressController.text}");
-      print("location: ${locationNotifier.value}");
-      print("date: ${_dateController.text}");
-      print("option: ${optionNotifier.value}");
+                            style: ElevatedButton.styleFrom(
+                              primary: colors.ColorPalette
+                                  .darkGreen, // set the background color of the button
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Process the form data
+                                // print valid form
+                                print("address: ${addressController.text}");
+                                print("location: ${locationNotifier.value}");
+                                print("date: ${_dateController.text}");
+                                print("option: ${optionNotifier.value}");
 
-      submitForm(); // Move the function call here
-    }
-  },
-  child: Text('Submit'),
-),
-
-                            
-                            
-                           
-                            
-                          
+                                submitForm(); // Move the function call here
+                              }
+                            },
+                            child: Text('Submit'),
+                          ),
                         ],
                       ),
                     ),

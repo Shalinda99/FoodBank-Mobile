@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ContactTab.dart';
 import 'package:flutter_application_1/Projects.dart';
 import 'package:flutter_application_1/navBar.dart';
 import 'colors.dart' as colors;
@@ -16,7 +17,7 @@ class _Home1State extends State<Home1> {
   int _selectedIndex = 0;
   final List<Widget> _tabs = [
     HomeTab(),
-    
+    ContactTab(),
     // SettingsTab(),
     Projects()
   ];

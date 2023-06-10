@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Center(
                           child: Image.asset(
-                            "assets/img4.png",
+                            "assets/img12.png",
                             scale: 0.8,
                           ),
                         ),
