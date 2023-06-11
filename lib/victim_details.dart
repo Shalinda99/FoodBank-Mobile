@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Victim {
   final String nic;
   final String firstName;
@@ -7,6 +9,11 @@ class Victim {
   final String street;
   final String city;
   final String description;
+  final String packageType;
+  final bool isVerified;
+  final bool isAccepted;
+  final bool isDeliverySelected;
+
 
   Victim({
     required this.nic,
@@ -17,6 +24,10 @@ class Victim {
     required this.street,
     required this.city,
     required this.description,
+    required this.isVerified,
+    required this.isDeliverySelected,
+    required this.isAccepted,
+    required this.packageType,
   });
 
   Map<String, dynamic> toJson() {
@@ -29,6 +40,11 @@ class Victim {
       'street': street,
       'city': city,
       'description': description,
+      'isVerified': true,
+      'isDeliverySelected' : false,
+      'isAccepted' : true,
+      'packageType' : null ,
+
     };
   }
 }
