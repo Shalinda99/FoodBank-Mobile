@@ -6,6 +6,8 @@ import 'colors.dart' as colors;
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+
+
 class VictimForm extends StatefulWidget {
   const VictimForm({Key? key}) : super(key: key);
 
@@ -13,9 +15,10 @@ class VictimForm extends StatefulWidget {
   State<VictimForm> createState() => _VictimFormState();
 }
 
-final _formKey = GlobalKey<FormState>();
+
 
 class _VictimFormState extends State<VictimForm> {
+  final _formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController lastnameController = TextEditingController();
   TextEditingController nicController = TextEditingController();
@@ -37,6 +40,11 @@ class _VictimFormState extends State<VictimForm> {
         'Street': streetController.text,
         'City': cityController.text,
         'Description': descriptionController.text,
+        'isVerified': true,
+      'isDeliverySelected' : false,
+      'isAccepted' : true,
+      'packageType' : null ,
+
       };
 
       // Convert the form data to JSON format
@@ -47,15 +55,22 @@ class _VictimFormState extends State<VictimForm> {
           'http://localhost:8080/Victim/saveVictimDetails'; // Replace with your backend API endpoint
 
       // Send the form data to the backend
-      final response = await http.post(
-        Uri.parse(backendEndpoint),
-        body: jsonData,
-        headers: {'Content-Type': 'application/json'},
-      );
+     final response = await http.post(
+  Uri.parse(backendEndpoint),
+  body: jsonData,
+  headers: {'Content-Type': 'application/json'},
+);
+
+if (response.statusCode == 200) {
+  print('Form data submitted successfully');
+} else {
+  print('Error submitting form data. Please try again later.');
+}
+
     }
   }
 
-  final _formKey = GlobalKey<FormState>();
+  
 
   Widget _buildFirstNameField() {
     return TextFormField(
@@ -322,8 +337,7 @@ class _VictimFormState extends State<VictimForm> {
                                 print("FirstName: ${nameController.text}");
                                 print("LastName: ${lastnameController.text}");
                                 print("Nic: ${nicController.text}");
-                                print(
-                                    "PhoneNumber: ${phonenumberController.text}");
+                                print("PhoneNumber: ${phonenumberController.text}");
                                 print("No: ${noController.text}");
                                 print("Street: ${streetController.text}");
                                 print("City: ${cityController.text}");

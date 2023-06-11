@@ -17,7 +17,7 @@ class NavBar extends StatelessWidget {
       padding: EdgeInsets.zero,
       children: [
         const SizedBox(
-            height: 110,
+            height: 180,
             child: UserAccountsDrawerHeader(
               accountName: Text(
                 'FOOD BANK',
